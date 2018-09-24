@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.w3c.dom.events.EventException;
+
 import com.jfoenix.controls.JFXButton;
 
 import factory.JPAFactory;
@@ -25,6 +27,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -37,6 +40,8 @@ public class ClienteController implements Initializable{
 	
 	private Cliente cliente;
 	
+    @FXML
+    private TitledPane tPCliente;
     @FXML
     private TabPane tablePaneAbas;
     @FXML
@@ -120,7 +125,7 @@ public class ClienteController implements Initializable{
     		lista = new ArrayList<Cliente>();
     	}
     	
-
+    	
     	
     	tvClientes.setItems(FXCollections.observableList(lista));
     }
@@ -201,23 +206,36 @@ public class ClienteController implements Initializable{
     				email = tfEmail.getText();
         	
     		cliente = new Cliente(tfNome.getText(),tfCpf.getText(),tfEndereco.getText(),tfEmail.getText());
-    		
-    		Alert al = new Alert(AlertType.CONFIRMATION);
-    		al.setHeaderText("Novo Cadastro");
-    		al.setContentText("Nome: " + nome + "\nCPF: "+cpf+"\nEndereço: "+endereco+"\nEmail: "+email);
-    		Optional<ButtonType> result = al.showAndWait();
-    		if(result.get() == ButtonType.OK) {
-    			Alert alInfo = new Alert(AlertType.INFORMATION);
-    			alInfo.setHeaderText("Cadastro Realizado com Sucesso!");
-    			alInfo.show();
+    		if(nome == null || cpf == null || endereco == null) {
+    			
     		}
+    		else {
+        		Alert al = new Alert(AlertType.CONFIRMATION);
+        		al.setHeaderText("Novo Cadastro");
+        		al.setContentText("Nome: " + nome + "\nCPF: "+cpf+"\nEndereço: "+endereco+"\nEmail: "+email);
+        		Optional<ButtonType> result = al.showAndWait();
+        		if(result.get() == ButtonType.OK) {
+        			try {
+                		EntityManager em = JPAFactory.getEntityManager();
+                		em.getTransaction().begin();
+                		em.persist(cliente);
+                		em.getTransaction().commit();
+                		em.close();
+                		
+            			Alert alInfo = new Alert(AlertType.INFORMATION);
+            			alInfo.setHeaderText("Cadastro Realizado com Sucesso!");
+            			alInfo.show();
+        			}catch (EventException e){
+        				
+        			}
+
+        		}
+    		}
+
     		
+
     		
-    		EntityManager em = JPAFactory.getEntityManager();
-    		em.getTransaction().begin();
-    		em.persist(cliente);
-    		em.getTransaction().commit();
-    		em.close();
+
     		
     		handleLimpar(event);
 

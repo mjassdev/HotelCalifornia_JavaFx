@@ -8,10 +8,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.NodeOrientation;
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -25,24 +27,15 @@ public class Controller {
 
     @FXML
     private JFXTabPane tabContainer;
-
     @FXML
-    private Tab userProfileTab;
-
+    private Tab userProfileTab, settingsTab, logoutTab, tabReservas, tabProdutos, tabUsuarios, tabRelatorios, tabConfiguracoes ;
     @FXML
-    private AnchorPane userProfileContainer;
-
+    private AnchorPane userProfileContainer, settingsContainer, reservasContainer, produtosContainer,  usuarioContainer, relatoriosContainer, configContainer ;
     @FXML
-    private Tab settingsTab;
-
-    @FXML
-    private AnchorPane settingsContainer;
-
-    @FXML
-    private Tab logoutTab;
-
-
-    private double tabWidth = 170.0;
+    private TextField tituloAba;
+    
+    private double tabWidth = 250.0;
+    private double tabHeight = 60;
     public static int lastSelectedTabIndex = 0;
 
     /// Life cycle
@@ -55,8 +48,8 @@ public class Controller {
     /// Private
 
     private void configureView() {
-        tabContainer.setTabMinWidth(tabWidth);
-        tabContainer.setTabMaxWidth(tabWidth);
+        tabContainer.setTabMinWidth(tabHeight);
+        tabContainer.setTabMaxWidth(tabHeight);
         tabContainer.setTabMinHeight(tabWidth);
         tabContainer.setTabMaxHeight(tabWidth);
         tabContainer.setRotateGraphic(true);
@@ -67,9 +60,12 @@ public class Controller {
             Tab currentTab = (Tab) event.getTarget();
             if (currentTab.isSelected()) {
                 currentTab.setStyle("-fx-background-color: -fx-focus-color;");
+
             } else {
                 currentTab.setStyle("-fx-background-color: -fx-accent;");
             }
+            
+            
         };
 
         EventHandler<Event> logoutHandler = event -> {
@@ -83,15 +79,21 @@ public class Controller {
             }
         };
 
-        configureTab(userProfileTab, "Clientes", "/imagens/user-profile.png", userProfileContainer, getClass().getResource("/view/cliente.fxml"), replaceBackgroundColorHandler);
-        configureTab(settingsTab, "Quartos", "/imagens/settings.png", settingsContainer, getClass().getResource("/view/settings.fxml"), replaceBackgroundColorHandler);
-        configureTab(logoutTab, "Logout", "/imagens/logout.png", null, null, logoutHandler);
+        configureTab(userProfileTab, "Clientes", "/imagens/users.png", userProfileContainer, getClass().getResource("/view/cliente.fxml"), replaceBackgroundColorHandler);
+        configureTab(settingsTab, "Quartos", "/imagens/bed.png", settingsContainer, getClass().getResource("/view/quartos.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabProdutos, "Produtos", "/imagens/box.png", produtosContainer, getClass().getResource("/view/produtos.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabRelatorios, "Relatorios", "/imagens/config.png", relatoriosContainer, getClass().getResource("/view/relatorios.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabUsuarios, "Usuários", "/imagens/user.png", usuarioContainer, getClass().getResource("/view/usuarios.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabReservas, "Reservas", "/imagens/mala.png", reservasContainer, getClass().getResource("/view/reservas.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabConfiguracoes, "Configurações", "/imagens/config.png", configContainer, getClass().getResource("/view/settings.fxml"), replaceBackgroundColorHandler);
 
-        userProfileTab.setStyle("-fx-background-color: -fx-focus-color;");
+        configureTab(logoutTab, "Sair", "/imagens/logout.png", null, null, logoutHandler);
+
+        //userProfileTab.setStyle("-fx-background-color: -fx-focus-color;");
     }
 
     private void configureTab(Tab tab, String title, String iconPath, AnchorPane containerPane, URL resourceURL, EventHandler<Event> onSelectionChangedEvent) {
-        double imageWidth = 40.0;
+        double imageWidth = 15.0;
 
         ImageView imageView = new ImageView(new Image(iconPath));
         imageView.setFitHeight(imageWidth);
@@ -99,15 +101,15 @@ public class Controller {
 
         Label label = new Label(title);
         label.setMaxWidth(tabWidth - 20);
-        label.setPadding(new Insets(5, 0, 0, 0));
-        label.setStyle("-fx-text-fill: black; -fx-font-size: 8pt; -fx-font-weight: normal;");
+        label.setPadding(new Insets(5, 0, 0, 10));
+        label.setStyle("-fx-text-fill: #7c8184; -fx-font-size: 9pt; -fx-font-weight: normal;");
         label.setTextAlignment(TextAlignment.CENTER);
 
         BorderPane tabPane = new BorderPane();
         tabPane.setRotate(90.0);
         tabPane.setMaxWidth(tabWidth);
-        tabPane.setCenter(imageView);
-        tabPane.setBottom(label);
+        tabPane.setLeft(imageView);
+        tabPane.setRight(label);
 
         tab.setText("");
         tab.setGraphic(tabPane);

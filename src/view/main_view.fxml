@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -11,6 +15,24 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
+            <VBox prefHeight="60.0" prefWidth="661.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane maxHeight="400.0" maxWidth="250.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #00A2D3;">
+                           <children>
+                              <Label layoutX="53.0" layoutY="20.0" style="-fx-text-fill: white;" text="HOTEL CALIFÓRNIA" />
+                           </children>
+                        </Pane>
+                        <TextField fx:id="tituloAba" editable="false" prefHeight="27.0" prefWidth="365.0" style="-fx-background-color: transparent;">
+                           <HBox.margin>
+                              <Insets left="30.0" top="15.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
             <HBox prefWidth="661.0" VBox.vgrow="ALWAYS">
                <children>
                   <JFXTabPane fx:id="tabContainer" prefHeight="378.0" prefWidth="661.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" HBox.hgrow="ALWAYS">
@@ -23,6 +45,31 @@
                         <Tab fx:id="userProfileTab" closable="false" text="User Profile">
                            <content>
                               <AnchorPane fx:id="userProfileContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabReservas" closable="false" text="Reservas">
+                           <content>
+                              <AnchorPane fx:id="reservasContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabProdutos" closable="false" text="Produtos">
+                           <content>
+                              <AnchorPane fx:id="produtosContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabUsuarios" closable="false" text="Usuarios">
+                           <content>
+                              <AnchorPane fx:id="usuarioContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabRelatorios" closable="false" text="Relatorios">
+                           <content>
+                              <AnchorPane fx:id="relatoriosContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabConfiguracoes" closable="false" text="Configuracoes">
+                           <content>
+                              <AnchorPane fx:id="configContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
                         <Tab fx:id="logoutTab" closable="false" text="Logout">
