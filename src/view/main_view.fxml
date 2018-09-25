@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="431.0" prefWidth="661.0" stylesheets="@../styles/global.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styles/global.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -22,6 +23,7 @@
                         <Pane maxHeight="400.0" maxWidth="250.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #00A2D3;">
                            <children>
                               <Label layoutX="53.0" layoutY="20.0" style="-fx-text-fill: white;" text="HOTEL CALIFÓRNIA" />
+                              <FontAwesomeIcon glyphStyle="-fx-fill:white" iconName="HOTEL" layoutX="31.0" layoutY="33.0" />
                            </children>
                         </Pane>
                         <TextField fx:id="tituloAba" editable="false" prefHeight="27.0" prefWidth="365.0" style="-fx-background-color: transparent;">
@@ -39,7 +41,7 @@
                      <tabs>
                         <Tab fx:id="settingsTab" closable="false" text="Settings">
                            <content>
-                              <AnchorPane fx:id="settingsContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <AnchorPane fx:id="settingsContainer" centerShape="false" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
                         <Tab fx:id="userProfileTab" closable="false" text="User Profile">

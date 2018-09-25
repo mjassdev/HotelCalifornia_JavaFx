@@ -21,7 +21,9 @@ public class Main extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("/view/main_view.fxml"));
 		
         primaryStage.setTitle("HOTEL CALIFÓRNIA");
-        primaryStage.setScene(new Scene(root, 1366, 724));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(true);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
 	}
 

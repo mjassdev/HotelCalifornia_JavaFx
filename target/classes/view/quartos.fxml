@@ -1,10 +1,246 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="283.0" layoutY="192.0" text="QUARTOS" />
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #333645;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: #6ca6cd;" />
+            <Label text="Livre" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="3.0" />
+               </HBox.margin>
+            </Label>
+            <HBox layoutX="40.0" layoutY="20.0" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: #4a7087;">
+               <padding>
+                  <Insets left="100.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </HBox>
+            <Label layoutX="53.0" layoutY="17.0" text="Ocupado" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <GridPane gridLinesVisible="true" HBox.hgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXButton prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="101">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="102" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="110.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="103" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="210.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="104" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="310.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="105" GridPane.columnIndex="4">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="410.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="106" GridPane.columnIndex="5">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="107" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="110.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="108" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="210.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="109" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="310.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="110" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="410.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="111" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="510.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="112" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="201" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="110.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="202" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="210.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="203" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="310.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="204" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="410.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="205" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="510.0" layoutY="10.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="206" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="77.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="207" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="110.0" layoutY="77.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="208" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="210.0" layoutY="77.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="209" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="310.0" layoutY="77.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="210" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="410.0" layoutY="77.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="211" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="510.0" layoutY="77.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="212" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="144.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="301" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="110.0" layoutY="144.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="302" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="210.0" layoutY="144.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="303" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="310.0" layoutY="144.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="304" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="410.0" layoutY="144.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="305" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="510.0" layoutY="144.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="306" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="211.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="307" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="110.0" layoutY="211.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="308" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="210.0" layoutY="211.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="309" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="310.0" layoutY="211.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="310" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="410.0" layoutY="211.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #6ca6cd;" text="311" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="510.0" layoutY="211.0" prefHeight="135.0" prefWidth="200.0" ripplerFill="BLACK" style="-fx-background-color: #4a7087;" text="312" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Arial Narrow" size="13.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

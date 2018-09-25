@@ -1,145 +1,59 @@
 package controller;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
 import org.w3c.dom.events.EventException;
-
-import com.jfoenix.controls.JFXButton;
-
-import application.Main;
 import factory.JPAFactory;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.stage.Window;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import model.Cliente;
 
-public class ClienteController implements Initializable{
-	
+public class Hospede implements Initializable {
 	private Cliente cliente;
 	
     @FXML
-    private TitledPane tPCliente;
-    @FXML
     private TabPane tablePaneAbas;
+
     @FXML
-    private TextField tfNome, tfCpf, tfEndereco, tfEmail;
+    private TextField tfNome;
+
     @FXML
-    private Button btLimpar, btIncluir, btExcluir, btAlterar;
+    private TextField tfCpf;
+
     @FXML
-    private TableView<Cliente> tvClientes;
+    private TextField tfEndereco;
+
     @FXML
-    private TableColumn<Cliente, Integer> tcIdClientes;
+    private TextField tfEmail;
+
     @FXML
-    private TableColumn<Cliente, String> tcCpfClientes, tcNomeClientes, tcEmailClientes, tcEnderecoClientes;
+    private Button btLimpar;
+
     @FXML
-    private TextField tfPesquisar;
+    private Button btExcluir;
+
     @FXML
-    private Button btPesquisar;
+    private Button btAlterar;
+
     @FXML
-    private JFXButton btCadastrarCliente;
-    
+    private Button btIncluir;
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		tcIdClientes.setCellValueFactory(new PropertyValueFactory<>("id"));
-		tcCpfClientes.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-		tcNomeClientes.setCellValueFactory(new PropertyValueFactory<>("nome"));	
-		tcEmailClientes.setCellValueFactory(new PropertyValueFactory<>("email"));
-		tcEnderecoClientes.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+		
+		
 	}
-	
-    @FXML
-    protected void dialogCliente(ActionEvent event) throws Exception {
-    	Button botao1 = new Button("Clique em mim! (Tratador externo)");
-    	Stage window = new Stage();
-    	window.initModality(Modality.APPLICATION_MODAL);
-    	
-    	//Pane pane = new Pane();
-    	Pane pane = new Pane(FXMLLoader.load(getClass().getResource("/view/hospede.fxml")));
-    	//Parent pane = FXMLLoader.load(getClass().getResource("/view/hospede.fxml"));
-    	
-    	Scene scene = new Scene(pane, 400,400);
-    	window.setScene(scene);
-    	window.initStyle(StageStyle.UNDECORATED);
-    	window.setResizable(false);
-    	window.setTitle("Janela");
-    	window.showAndWait();
-
-    } 
-    
-    @FXML
-    void handleMouseClicked(MouseEvent event) {
-    	if(event.getButton().equals(MouseButton.PRIMARY)) {
-    		if(event.getClickCount() == 2) {
-    	    	cliente = tvClientes.getSelectionModel().getSelectedItem();
-    	    	tfCpf.setText(cliente.getCpf());
-    	    	tfNome.setText(cliente.getNome());
-    	    	tfEndereco.setText(cliente.getEndereco());
-    	    	tfEmail.setText(cliente.getEmail());
-    	    	
-    	    	//selecionando a primeira Aba
-    	    	tablePaneAbas.getSelectionModel().select(0);
-    	    	
-    	    	tfCpf.requestFocus();
-    			atualizarBotoes();
-    		}
-    	}
-    }
-	
-    @FXML
-    void handleBuscar(ActionEvent event) {
-    	
-    	System.out.println("Pesquisar");
-    	EntityManager em = JPAFactory.getEntityManager();
-    	
-    	Query query = em.createQuery("Select c From Cliente c WHERE lower(c.nome) like lower(:nome)");
-    	query.setParameter("nome", "%" + tfPesquisar.getText() + "%");
-    	List<Cliente> lista = query.getResultList();
-    	    	
-    	if(lista == null || lista.isEmpty()) {
-    		Alert alerta = new Alert(AlertType.INFORMATION);
-    		alerta.setTitle("Informação");
-    		alerta.setHeaderText(null);
-    		alerta.setContentText("A lista não retornou dados");
-    		alerta.show();
-    		lista = new ArrayList<Cliente>();
-    	}
-    	
-    	
-    	
-    	tvClientes.setItems(FXCollections.observableList(lista));
-    }
 	
     @FXML
     void handleAlterar(ActionEvent event) {
@@ -209,7 +123,6 @@ public class ClienteController implements Initializable{
 
     @FXML
     void handleIncluir(ActionEvent event) {
-    	
 
     		String nome = tfNome.getText(),
     				endereco = tfEndereco.getText(),
@@ -242,18 +155,7 @@ public class ClienteController implements Initializable{
 
         		}
     		}
-
-    		
-
-    		
-
-    		
     		handleLimpar(event);
-
-
-
-    	
-    	
     }
 
     @FXML
@@ -275,5 +177,6 @@ public class ClienteController implements Initializable{
 
 
     }
+	
 	
 }
