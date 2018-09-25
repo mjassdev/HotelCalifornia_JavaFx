@@ -11,13 +11,13 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/usuario/Downloads/postgresql-42.2.5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/usuario/Documents/Workspace/HotelCalifornia/src/styles/fontawesomefx-8.1.jar"/>
-	<classpathentry kind="lib" path="/Users/usuario/Documents/Installs/jfoenix-8.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/Downloads/drive-download-20180923T142500Z-001/fontawesomefx-8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/Downloads/drive-download-20180923T142500Z-001/jfoenix-8.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Daniel/Downloads/drive-download-20180923T142500Z-001/postgresql-42.2.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
