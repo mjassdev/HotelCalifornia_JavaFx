@@ -62,6 +62,7 @@ public class UsuarioController implements Initializable {
 		tcPerfilUsuario.setCellValueFactory(new PropertyValueFactory<>("perfilUsuario"));
 	}
 	
+	//Abrir janela de castro de usuários do sistema
 	@FXML
 	private void dialogUsuarios(ActionEvent event) throws IOException {
 		FXMLLoader fXMLLoader = new FXMLLoader();
