@@ -82,10 +82,10 @@ public class Controller {
         configureTab(userProfileTab, "Clientes", "/imagens/users.png", userProfileContainer, getClass().getResource("/view/cliente2.fxml"), replaceBackgroundColorHandler);
         configureTab(settingsTab, "Quartos", "/imagens/bed.png", settingsContainer, getClass().getResource("/view/quartos.fxml"), replaceBackgroundColorHandler);
         configureTab(tabProdutos, "Produtos", "/imagens/box.png", produtosContainer, getClass().getResource("/view/produtos.fxml"), replaceBackgroundColorHandler);
-        configureTab(tabRelatorios, "Relatorios", "/imagens/config.png", relatoriosContainer, getClass().getResource("/view/relatorios.fxml"), replaceBackgroundColorHandler);
-        configureTab(tabUsuarios, "UsuÃ¡rios", "/imagens/user.png", usuarioContainer, getClass().getResource("/view/usuarios.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabRelatorios, "Relatórios", "/imagens/config.png", relatoriosContainer, getClass().getResource("/view/relatorios.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabUsuarios, "Usuários", "/imagens/user.png", usuarioContainer, getClass().getResource("/view/usuarios.fxml"), replaceBackgroundColorHandler);
         configureTab(tabReservas, "Reservas", "/imagens/mala.png", reservasContainer, getClass().getResource("/view/reservas.fxml"), replaceBackgroundColorHandler);
-        configureTab(tabConfiguracoes, "ConfiguraÃ§Ãµes", "/imagens/config.png", configContainer, getClass().getResource("/view/settings.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabConfiguracoes, "Configurações", "/imagens/config.png", configContainer, getClass().getResource("/view/settings.fxml"), replaceBackgroundColorHandler);
 
         configureTab(logoutTab, "Sair", "/imagens/logout.png", null, null, logoutHandler);
 
