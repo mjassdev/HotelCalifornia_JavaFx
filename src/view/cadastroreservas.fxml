@@ -2,10 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -27,7 +27,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                <children>
-                  <Label text="Usuários">
+                  <Label text="Reservas">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -38,12 +38,12 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Nome:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Data Chegada:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <JFXTextField fx:id="tfNome" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <DatePicker fx:id="dpDataChegada" prefHeight="26.0" prefWidth="298.0" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -51,52 +51,42 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="CPF:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Data Saída:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <JFXTextField fx:id="tfCpf" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <DatePicker fx:id="dpDataSaida" prefHeight="27.0" prefWidth="298.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Endereço:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="189.0" style="-fx-background-color: #00A2D3;" text="Quantidade de Hospedes:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <JFXTextField fx:id="tfEndereco" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfQuantidadeHospede" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
                      </children>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Email:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="188.0" style="-fx-background-color: #00A2D3;" text="Hospede Responsável:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <JFXTextField fx:id="tfEmail" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="194.0" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Senha" textFill="WHITE">
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Label>
-                        <JFXPasswordField fx:id="pfSenha" prefHeight="25.0" prefWidth="302.0" />
+                        <JFXTextField fx:id="tfHospedeResponsavel" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
                      </children>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="198.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Perfil do Usuário" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Tipo do Quarto:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <JFXComboBox fx:id="cbPerfilUsuario" prefHeight="25.0" prefWidth="298.0" />
+                        <JFXComboBox fx:id="tcTipoQuarto" prefHeight="25.0" prefWidth="298.0" />
                      </children>
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="400.0">

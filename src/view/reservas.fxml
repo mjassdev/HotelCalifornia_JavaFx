@@ -47,8 +47,8 @@
             <TableView fx:id="tvReservas" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/stylesheet.css">
                <columns>
                   <TableColumn fx:id="tcIdReserva" editable="false" prefWidth="39.0" text="Id" />
-                  <TableColumn fx:id="tcCheckin" editable="false" prefWidth="98.0" text="Checkin" />
-                  <TableColumn fx:id="tcCheckout" editable="false" prefWidth="138.0" text="Checkout" />
+                  <TableColumn fx:id="tcDataChegada" editable="false" prefWidth="98.0" text="Data Chegada" />
+                  <TableColumn fx:id="tcDataSaida" editable="false" prefWidth="138.0" text="Data Saída" />
                   <TableColumn fx:id="tcQuantidadeHospedes" editable="false" minWidth="0.0" prefWidth="154.0" text="Quantidade de Hospedes" />
                   <TableColumn fx:id="tcHospedeResponsavel" editable="false" maxWidth="145.0" minWidth="100.0" prefWidth="135.0" text="Hospede Responsável" />
                   <TableColumn fx:id="tcTipoQuarto" prefWidth="115.0" text="Tipode de Quarto" />
@@ -65,7 +65,7 @@
       </VBox>
       <HBox fillHeight="false" prefHeight="32.0" prefWidth="126.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
          <children>
-            <JFXButton fx:id="btCadastrarReserva" alignment="CENTER" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #333645; -fx-text-fill: white; -fx-background-radius: 0px;" text="NOVA RESERVA">
+            <JFXButton fx:id="btCadastrarReserva" alignment="CENTER" onAction="#dialogReservas" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #333645; -fx-text-fill: white; -fx-background-radius: 0px;" text="NOVA RESERVA">
                <font>
                   <Font size="10.0" />
                </font>
