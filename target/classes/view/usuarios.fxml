@@ -44,13 +44,13 @@
                   </HBox>
                </children>
             </Pane>
-            <TableView fx:id="tvClientes" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/stylesheet.css">
+            <TableView fx:id="tvUsuarios" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/stylesheet.css">
                <columns>
-                  <TableColumn fx:id="tcIdClientes" editable="false" prefWidth="39.0" text="Id" />
-                  <TableColumn fx:id="tcCpfClientes" editable="false" prefWidth="98.0" text="CPF" />
-                  <TableColumn fx:id="tcNomeClientes" editable="false" prefWidth="193.0" text="Nome" />
-                  <TableColumn fx:id="tcEmailClientes" editable="false" minWidth="0.0" prefWidth="98.0" text="Email" />
-                  <TableColumn fx:id="tcEnderecoClientes" editable="false" maxWidth="131.0" minWidth="100.0" prefWidth="131.0" text="Endereço" />
+                  <TableColumn fx:id="tcIdUsuario" editable="false" prefWidth="39.0" text="Id" />
+                  <TableColumn fx:id="tcCpfUsuario" editable="false" prefWidth="98.0" text="CPF" />
+                  <TableColumn fx:id="tcNomeUsuario" editable="false" prefWidth="193.0" text="Nome" />
+                  <TableColumn fx:id="tcEmailUsuario" editable="false" minWidth="0.0" prefWidth="98.0" text="Email" />
+                  <TableColumn fx:id="tcEnderecoUsuario" editable="false" maxWidth="131.0" minWidth="100.0" prefWidth="131.0" text="Endereço" />
                   <TableColumn fx:id="tcPerfilUsuario" prefWidth="96.0" text="Perfil do Usuário" />
                </columns>
                <styleClass>

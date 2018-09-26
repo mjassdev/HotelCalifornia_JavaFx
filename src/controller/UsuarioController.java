@@ -29,40 +29,40 @@ public class UsuarioController implements Initializable {
 	private Button btPesquisar;
 
 	@FXML
-	private TableView<?> tvClientes;
+	private TableView<?> tvUsuarios;
 
 	@FXML
-	private TableColumn<?, ?> tcIdClientes;
+	private TableColumn<?, ?> tcIdUsuario;
 
 	@FXML
-	private TableColumn<?, ?> tcCpfClientes;
+	private TableColumn<?, ?> tcCpfUsuario;
 
 	@FXML
-	private TableColumn<?, ?> tcNomeClientes;
+	private TableColumn<?, ?> tcNomeUsuario;
 
 	@FXML
-	private TableColumn<?, ?> tcEmailClientes;
+	private TableColumn<?, ?> tcEmailUsuario;
 
 	@FXML
-	private TableColumn<?, ?> tcEnderecoClientes;
+	private TableColumn<?, ?> tcEnderecoUsuario;
 
-    @FXML
-    private TableColumn<?, ?> tcPerfilUsuario;
-    
-    @FXML
-    private JFXButton btCadastrarUsuario;
-    
+	@FXML
+	private TableColumn<?, ?> tcPerfilUsuario;
+
+	@FXML
+	private JFXButton btCadastrarUsuario;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		tcIdClientes.setCellValueFactory(new PropertyValueFactory<>("id"));
-		tcCpfClientes.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-		tcNomeClientes.setCellValueFactory(new PropertyValueFactory<>("nome"));
-		tcEmailClientes.setCellValueFactory(new PropertyValueFactory<>("email"));
-		tcEnderecoClientes.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+		tcIdUsuario.setCellValueFactory(new PropertyValueFactory<>("id"));
+		tcCpfUsuario.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+		tcNomeUsuario.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		tcEmailUsuario.setCellValueFactory(new PropertyValueFactory<>("email"));
+		tcEnderecoUsuario.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		tcPerfilUsuario.setCellValueFactory(new PropertyValueFactory<>("perfilUsuario"));
 	}
-	
-	//Abrir janela de castro de usuários do sistema
+
+	// Abrir janela de castro de usuários do sistema
 	@FXML
 	private void dialogUsuarios(ActionEvent event) throws IOException {
 		FXMLLoader fXMLLoader = new FXMLLoader();
