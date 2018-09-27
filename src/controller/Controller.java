@@ -82,12 +82,12 @@ public class Controller {
         configureTab(userProfileTab, "Clientes", "/imagens/users.png", userProfileContainer, getClass().getResource("/view/cliente2.fxml"), replaceBackgroundColorHandler);
         configureTab(settingsTab, "Quartos", "/imagens/bed.png", settingsContainer, getClass().getResource("/view/quartos.fxml"), replaceBackgroundColorHandler);
         configureTab(tabProdutos, "Produtos", "/imagens/box.png", produtosContainer, getClass().getResource("/view/produtos.fxml"), replaceBackgroundColorHandler);
-        configureTab(tabRelatorios, "Relatorios", "/imagens/config.png", relatoriosContainer, getClass().getResource("/view/relatorios.fxml"), replaceBackgroundColorHandler);
+        configureTab(tabRelatorios, "Relatorios", "/imagens/report.png", relatoriosContainer, getClass().getResource("/view/relatorios.fxml"), replaceBackgroundColorHandler);
         configureTab(tabUsuarios, "Usuarios", "/imagens/user.png", usuarioContainer, getClass().getResource("/view/usuarios.fxml"), replaceBackgroundColorHandler);
         configureTab(tabReservas, "Reservas", "/imagens/mala.png", reservasContainer, getClass().getResource("/view/reservas.fxml"), replaceBackgroundColorHandler);
         configureTab(tabConfiguracoes, "Configuracoes", "/imagens/config.png", configContainer, getClass().getResource("/view/settings.fxml"), replaceBackgroundColorHandler);
 
-        configureTab(logoutTab, "Sair", "/imagens/logout.png", null, null, logoutHandler);
+        configureTab(logoutTab, "Sair", "/imagens/door.png", null, null, logoutHandler);
 
         //userProfileTab.setStyle("-fx-background-color: -fx-focus-color;");
     }
