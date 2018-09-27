@@ -12,17 +12,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="400.0" style="-fx-border-color: #333645;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Hospede">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="500.0" style="-fx-border-color: #333645; -fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastraUsuarioController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="30.0">
                <children>
-                  <JFXButton fx:id="btFechar" onAction="#handleFecharJanela" prefHeight="25.0" prefWidth="23.0" style="-fx-background-color: TRANSPARENT;" text=" " textAlignment="RIGHT" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <FontAwesomeIcon iconName="CLOSE" />
-                     </graphic>
-                  </JFXButton>
+                  <FontAwesomeIcon fx:id="btFechar" iconName="CLOSE" onMouseClicked="#handleFecharJanela">
+                     <HBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
@@ -38,12 +38,18 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Nome:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Nome:" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfNome" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfNome" focusColor="#4662b5" prefHeight="27.0" prefWidth="360.0" style="-fx-background-color: white;" unFocusColor="#2fa4bc">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -51,72 +57,112 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="CPF:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="CPF:" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfCpf" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfCpf" focusColor="#4662b5" prefHeight="27.0" prefWidth="360.0" style="-fx-background-color: white;" unFocusColor="#2fa4bc">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Endereço:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Endereço:" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfEndereco" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfEndereco" focusColor="#4662b5" prefHeight="27.0" prefWidth="360.0" style="-fx-background-color: white;" unFocusColor="#2fa4bc">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Email:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Email:" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfEmail" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfEmail" focusColor="#4662b5" prefHeight="27.0" prefWidth="360.0" style="-fx-background-color: white;" unFocusColor="#2fa4bc">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="194.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Senha" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: #00A2D3;" text="Senha" textFill="WHITE">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXPasswordField fx:id="pfSenha" prefHeight="27.0" prefWidth="115.0" unFocusColor="#2fa4bc">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXPasswordField>
+                        <Label alignment="CENTER_RIGHT" layoutX="30.0" layoutY="10.0" prefHeight="27.0" prefWidth="103.0" style="-fx-background-color: #00A2D3;" text="Confirmação" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <JFXPasswordField fx:id="pfSenha" prefHeight="25.0" prefWidth="302.0" />
+                        <JFXPasswordField fx:id="pfSenha1" layoutX="109.0" layoutY="10.0" prefHeight="27.0" prefWidth="135.0" unFocusColor="#2fa4bc">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXPasswordField>
                      </children>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="198.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Perfil do Usuário" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Perfil" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXComboBox fx:id="cbPerfilUsuario" prefHeight="25.0" prefWidth="298.0" />
+                        <JFXComboBox fx:id="cbPerfilUsuario" prefHeight="27.0" prefWidth="361.0" unFocusColor="#2fa4bc">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXComboBox>
                      </children>
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="400.0">
                      <children>
-                        <JFXButton fx:id="btIncluir" onAction="#handleIncluir" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Salvar">
+                        <JFXButton fx:id="btIncluir" onAction="#handleIncluir" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Salvar">
                            <graphic>
                               <FontAwesomeIcon iconName="SAVE" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
+                        <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
                            <graphic>
                               <FontAwesomeIcon iconName="PENCIL" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="btExcluir" onAction="#handleExcluir" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Excluir">
+                        <JFXButton fx:id="btExcluir" onAction="#handleExcluir" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Excluir">
                            <graphic>
                               <FontAwesomeIcon iconName="TRASH" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
+                        <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
                            <graphic>
                               <FontAwesomeIcon iconName="RECYCLE" />
                            </graphic>

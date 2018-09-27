@@ -12,20 +12,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="400.0" style="-fx-border-color: #333645;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Hospede">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-border-color: #333645; -fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroReservaController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="150.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="30.0">
                <children>
-                  <JFXButton fx:id="btFechar" onAction="#handleFecharJanela" prefHeight="25.0" prefWidth="23.0" style="-fx-background-color: TRANSPARENT;" text=" " textAlignment="RIGHT" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <FontAwesomeIcon iconName="CLOSE" />
-                     </graphic>
-                  </JFXButton>
+                  <FontAwesomeIcon fx:id="btFechar" iconName="CLOSE" onMouseClicked="#handleFecharJanela">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+            <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="598.0">
                <children>
                   <Label text="Reservas">
                      <font>
@@ -34,88 +34,103 @@
                   </Label>
                </children>
             </HBox>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="300.0" prefWidth="400.0">
+            <VBox alignment="CENTER" prefHeight="183.0" prefWidth="598.0">
                <children>
-                  <HBox prefHeight="50.0" prefWidth="200.0">
+                  <HBox prefHeight="40.0" prefWidth="598.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Data Chegada:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #00A2D3;" text="Previsão de Chegada" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <DatePicker fx:id="dpDataChegada" prefHeight="26.0" prefWidth="298.0" />
+                        <DatePicker fx:id="dpDataChegada" prefHeight="27.0" prefWidth="145.0" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #00A2D3;" text="Previsão de Saída:" textFill="WHITE">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="dpDataSaida" prefHeight="27.0" prefWidth="143.0">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </DatePicker>
                      </children>
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="200.0">
+                  <HBox prefHeight="40.0" prefWidth="598.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Data Saída:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="177.0" style="-fx-background-color: #00A2D3;" text="Quantidade de Hospedes:" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <DatePicker fx:id="dpDataSaida" prefHeight="27.0" prefWidth="298.0" />
+                        <JFXComboBox fx:id="tfQuantidadeHospede" prefHeight="27.0" prefWidth="111.0" />
+                        <Label prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #00A2D3;" text="Tipo do Quarto:" textFill="WHITE">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXComboBox fx:id="tcTipoQuarto" prefHeight="27.0" prefWidth="149.0">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXComboBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="50.0" prefWidth="200.0">
+                  <HBox prefHeight="42.0" prefWidth="598.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="189.0" style="-fx-background-color: #00A2D3;" text="Quantidade de Hospedes:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #00A2D3;" text="Hospede Responsável:" textFill="WHITE">
                            <padding>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfQuantidadeHospede" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="188.0" style="-fx-background-color: #00A2D3;" text="Hospede Responsável:" textFill="WHITE">
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Label>
-                        <JFXTextField fx:id="tfHospedeResponsavel" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="198.0" prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Tipo do Quarto:" textFill="WHITE">
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Label>
-                        <JFXComboBox fx:id="tcTipoQuarto" prefHeight="25.0" prefWidth="298.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="400.0">
-                     <children>
-                        <JFXButton fx:id="btIncluir" onAction="#handleIncluir" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Salvar">
-                           <graphic>
-                              <FontAwesomeIcon iconName="SAVE" />
-                           </graphic>
-                        </JFXButton>
-                        <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
-                           <graphic>
-                              <FontAwesomeIcon iconName="PENCIL" />
-                           </graphic>
-                        </JFXButton>
-                        <JFXButton fx:id="btExcluir" onAction="#handleExcluir" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Excluir">
-                           <graphic>
-                              <FontAwesomeIcon iconName="TRASH" />
-                           </graphic>
-                        </JFXButton>
-                        <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
-                           <graphic>
-                              <FontAwesomeIcon iconName="RECYCLE" />
-                           </graphic>
-                        </JFXButton>
+                        <JFXTextField fx:id="tfHospedeResponsavel" focusColor="#4662b5" prefHeight="27.0" prefWidth="384.0" style="-fx-background-color: white;" unFocusColor="#2fa4bc" />
                      </children>
                   </HBox>
                </children>
             </VBox>
          </children>
       </VBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <JFXButton fx:id="btIncluir" onAction="#handleIncluir" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Salvar">
+               <graphic>
+                  <FontAwesomeIcon iconName="SAVE" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
+               <graphic>
+                  <FontAwesomeIcon iconName="PENCIL" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btExcluir" onAction="#handleExcluir" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Excluir">
+               <graphic>
+                  <FontAwesomeIcon iconName="TRASH" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
+               <graphic>
+                  <FontAwesomeIcon iconName="RECYCLE" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
