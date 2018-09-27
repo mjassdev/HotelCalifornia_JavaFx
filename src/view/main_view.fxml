@@ -44,32 +44,32 @@
                               <AnchorPane fx:id="settingsContainer" centerShape="false" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="userProfileTab" closable="false" text="User Profile">
+                        <Tab fx:id="userProfileTab" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="userProfileContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabReservas" closable="false" text="Reservas">
+                        <Tab fx:id="tabReservas" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="reservasContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabProdutos" closable="false" text="Produtos">
+                        <Tab fx:id="tabProdutos" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="produtosContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabUsuarios" closable="false" text="Usuarios">
+                        <Tab fx:id="tabUsuarios" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="usuarioContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabRelatorios" closable="false" text="Relatorios">
+                        <Tab fx:id="tabRelatorios" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="relatoriosContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabConfiguracoes" closable="false" text="Configuracoes">
+                        <Tab fx:id="tabConfiguracoes" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="configContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>

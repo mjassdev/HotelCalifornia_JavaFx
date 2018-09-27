@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="283.0" layoutY="192.0" text="SETTGINS" />
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton prefHeight="109.0" prefWidth="155.0" style="-fx-background-color: #1874CD; -fx-text-fill: white;" text="PREFERÊNCIAS">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton prefHeight="109.0" prefWidth="155.0" style="-fx-background-color: #1874CD; -fx-text-fill: white;" text="BASE DE DADOS">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="119.0" prefHeight="109.0" prefWidth="155.0" style="-fx-background-color: #1874CD; -fx-text-fill: white;" text="SOBRE" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
