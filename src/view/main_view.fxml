@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styles/global.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<StackPane prefHeight="600.0" prefWidth="1366.0" stylesheets="@../styles/global.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -20,7 +20,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Pane maxHeight="400.0" maxWidth="250.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #00A2D3;">
+                        <Pane maxHeight="400.0" maxWidth="250.0" minHeight="50.0" minWidth="50.0" prefHeight="60.0" prefWidth="387.0" style="-fx-background-color: #00A2D3;">
                            <children>
                               <Label layoutX="53.0" layoutY="20.0" style="-fx-text-fill: white;" text="HOTEL CALIFÓRNIA" />
                               <FontAwesomeIcon glyphStyle="-fx-fill:white" iconName="HOTEL" layoutX="31.0" layoutY="33.0" />
@@ -85,5 +85,15 @@
             </HBox>
          </children>
       </VBox>
+      <AnchorPane maxHeight="60.0" minHeight="60.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1366.0" StackPane.alignment="TOP_LEFT">
+         <children>
+            <Pane prefHeight="46.0" prefWidth="1219.0">
+               <children>
+                  <FontAwesomeIcon iconName="USER" layoutX="112.0" layoutY="37.0" size="1.8em" />
+                  <Label layoutX="54.0" layoutY="20.0" text="Daniel" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>

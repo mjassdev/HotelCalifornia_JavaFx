@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutosController">
    <children>
-      <Label layoutX="283.0" layoutY="192.0" text="PRODUTOS" />
+      <TableView layoutX="52.0" layoutY="122.0" prefHeight="200.0" prefWidth="524.0" stylesheets="@../styles/global.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="COD." />
+          <TableColumn prefWidth="102.0" text="DESCRIÇÃO" />
+            <TableColumn prefWidth="48.0" text="UND." />
+            <TableColumn prefWidth="113.0" text="Q. ESTOQUE" />
+            <TableColumn prefWidth="101.0" text="P. UNITÁRIO" />
+            <TableColumn prefWidth="99.0" text="P. TOTAL" />
+        </columns>
+         <styleClass>
+            <String fx:value="headers-region" />
+            <String fx:value="tab-header-area" />
+         </styleClass>
+      </TableView>
+      <JFXButton fx:id="btNovoCadastro" layoutX="463.0" layoutY="14.0" onAction="#CadastrarProduto" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="NOVO CADASTRO" AnchorPane.rightAnchor="20.0" />
+      <JFXButton fx:id="btLancarProdutos" layoutX="20.0" layoutY="14.0" onAction="#lancarprodutos" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="LANÇAR" AnchorPane.leftAnchor="20.0" />
+      <JFXButton fx:id="btAjusteEstoque" layoutX="22.0" layoutY="358.0" onAction="#AjustarEstoque" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="AJUSTAR ESTOQUE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+      <JFXButton fx:id="btRelatorioEstoque" layoutX="178.0" layoutY="353.0" onAction="#RelatorioEstoque" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="RELATÓRIO DE ESTOQUE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="170.0" />
    </children>
 </AnchorPane>
