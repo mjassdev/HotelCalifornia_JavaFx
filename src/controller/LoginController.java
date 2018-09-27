@@ -40,7 +40,10 @@ public class LoginController implements Initializable {
         scene.setResizable(true);
         //primaryStage.setFullScreen(true);
         scene.showAndWait();
-        scene.close();
+        
+        //Mudar quando criar metodo de validação de acesso
+		Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
+		stage.close(); 
         
     }
 
