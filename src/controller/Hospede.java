@@ -5,9 +5,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javax.persistence.EntityManager;
 import org.w3c.dom.events.EventException;
-
-import com.jfoenix.controls.JFXButton;
-
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import factory.JPAFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -24,35 +23,17 @@ import model.Cliente;
 public class Hospede implements Initializable {
 	private Cliente cliente;
 
-	@FXML
-	private JFXButton btFechar;
+    @FXML
+    private FontAwesomeIcon btFechar;
 
 	@FXML
 	private TabPane tablePaneAbas;
 
 	@FXML
-	private TextField tfNome;
+	private TextField tfNome, tfCpf, tfEndereco, tfEmail;
 
 	@FXML
-	private TextField tfCpf;
-
-	@FXML
-	private TextField tfEndereco;
-
-	@FXML
-	private TextField tfEmail;
-
-	@FXML
-	private Button btLimpar;
-
-	@FXML
-	private Button btExcluir;
-
-	@FXML
-	private Button btAlterar;
-
-	@FXML
-	private Button btIncluir;
+	private Button btLimpar, btExcluir, btAlterar, btIncluir;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -152,12 +133,12 @@ public class Hospede implements Initializable {
 	}
 
 	@FXML
-	void handleFecharJanela(ActionEvent event) {
+	void handleFecharJanela(MouseEvent event) {
 		Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
 		stage.close(); // Fechando o Stage
 	}
 
-	@FXML
+	@FXML	
 	void handleLimpar(ActionEvent event) {
 		tfCpf.setText("");
 		tfNome.setText("");

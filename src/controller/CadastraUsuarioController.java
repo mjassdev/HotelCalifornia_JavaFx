@@ -15,6 +15,7 @@ import org.w3c.dom.events.EventException;
 import com.jfoenix.controls.JFXButton;
 
 import application.Main;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import factory.JPAFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -45,96 +46,30 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import model.Cliente;
 
-public class ClienteController implements Initializable {
+public class CadastraUsuarioController implements Initializable {
 
 	private Cliente cliente;
 
-	@FXML
-	private TitledPane tPCliente;
+    @FXML
+    private FontAwesomeIcon btFechar;
+
 	@FXML
 	private TabPane tablePaneAbas;
+
 	@FXML
 	private TextField tfNome, tfCpf, tfEndereco, tfEmail;
+
 	@FXML
-	private Button btLimpar, btIncluir, btExcluir, btAlterar;
-	@FXML
-	private TableView<Cliente> tvClientes;
-	@FXML
-	private TableColumn<Cliente, Integer> tcIdClientes;
-	@FXML
-	private TableColumn<Cliente, String> tcCpfClientes, tcNomeClientes, tcEmailClientes, tcEnderecoClientes;
-	@FXML
-	private TextField tfPesquisar;
-	@FXML
-	private Button btPesquisar;
-	@FXML
-	private JFXButton btCadastrarCliente;
+	private Button btLimpar, btExcluir, btAlterar, btIncluir;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		tcIdClientes.setCellValueFactory(new PropertyValueFactory<>("id"));
-		tcCpfClientes.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-		tcNomeClientes.setCellValueFactory(new PropertyValueFactory<>("nome"));
-		tcEmailClientes.setCellValueFactory(new PropertyValueFactory<>("email"));
-		tcEnderecoClientes.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-	}
 
-
-	@FXML
-	private void dialogCliente(ActionEvent event) throws IOException {
-		FXMLLoader fXMLLoader = new FXMLLoader();
-		fXMLLoader.setLocation(getClass().getResource("/view/hospede.fxml"));
-		Stage stage = new Stage();
-		Scene scene = new Scene(fXMLLoader.load());
-		stage.setScene(scene);
-		stage.setResizable(false);
-		stage.initStyle(StageStyle.UNDECORATED);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("Usuarios");
-		stage.show();
-	}
-
-	@FXML
-	void handleMouseClicked(MouseEvent event) {
-		if (event.getButton().equals(MouseButton.PRIMARY)) {
-			if (event.getClickCount() == 2) {
-				cliente = tvClientes.getSelectionModel().getSelectedItem();
-				tfCpf.setText(cliente.getCpf());
-				tfNome.setText(cliente.getNome());
-				tfEndereco.setText(cliente.getEndereco());
-				tfEmail.setText(cliente.getEmail());
-
-				// selecionando a primeira Aba
-				tablePaneAbas.getSelectionModel().select(0);
-
-				tfCpf.requestFocus();
-				atualizarBotoes();
-			}
-		}
-	}
-
-	@FXML
-	void handleBuscar(ActionEvent event) {
-		EntityManager em = JPAFactory.getEntityManager();
-
-		Query query = em.createQuery("Select c From Cliente c WHERE lower(c.nome) like lower(:nome)");
-		query.setParameter("nome", "%" + tfPesquisar.getText() + "%");
-		List<Cliente> lista = query.getResultList();
-
-		if (lista == null || lista.isEmpty()) {
-			Alert alerta = new Alert(AlertType.INFORMATION);
-			alerta.setTitle("Informação");
-			alerta.setHeaderText(null);
-			alerta.setContentText("A lista não retornou dados");
-			alerta.show();
-			lista = new ArrayList<Cliente>();
-		}
-
-		tvClientes.setItems(FXCollections.observableList(lista));
 	}
 
 	@FXML
 	void handleAlterar(ActionEvent event) {
+
 		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
 				email = tfEmail.getText();
 
@@ -161,6 +96,7 @@ public class ClienteController implements Initializable {
 		em.close();
 
 		handleLimpar(event);
+
 	}
 
 	@FXML
@@ -173,6 +109,7 @@ public class ClienteController implements Initializable {
 		al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email);
 		Optional<ButtonType> result = al.showAndWait();
 		if (result.get() == ButtonType.OK) {
+
 			Alert alInfo = new Alert(AlertType.INFORMATION);
 			alInfo.setHeaderText("Cadastro Removido com Sucesso!");
 			alInfo.show();
@@ -190,6 +127,7 @@ public class ClienteController implements Initializable {
 
 	@FXML
 	void handleIncluir(ActionEvent event) {
+
 		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
 				email = tfEmail.getText();
 
@@ -213,14 +151,21 @@ public class ClienteController implements Initializable {
 					alInfo.setHeaderText("Cadastro Realizado com Sucesso!");
 					alInfo.show();
 				} catch (EventException e) {
+
 				}
+
 			}
 		}
-
 		handleLimpar(event);
 	}
 
 	@FXML
+	void handleFecharJanela(MouseEvent event) {
+		Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
+		stage.close(); // Fechando o Stage
+	}
+
+	@FXML	
 	void handleLimpar(ActionEvent event) {
 		tfCpf.setText("");
 		tfNome.setText("");
@@ -236,5 +181,6 @@ public class ClienteController implements Initializable {
 		btIncluir.setDisable(cliente.getId() != null);
 		btAlterar.setDisable(cliente.getId() == null);
 		btExcluir.setDisable(cliente.getId() == null);
+
 	}
 }

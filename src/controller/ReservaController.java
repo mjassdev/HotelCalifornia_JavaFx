@@ -72,7 +72,7 @@ public class ReservaController implements Initializable {
 		stage.setResizable(false);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("Usuários");
+		stage.setTitle("Usuarios");
 		stage.show();
 	}
 

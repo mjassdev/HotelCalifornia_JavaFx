@@ -5,7 +5,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -52,6 +57,8 @@ public class UsuarioController implements Initializable {
 	@FXML
 	private JFXButton btCadastrarUsuario;
 
+
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		tcIdUsuario.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -62,7 +69,7 @@ public class UsuarioController implements Initializable {
 		tcPerfilUsuario.setCellValueFactory(new PropertyValueFactory<>("perfilUsuario"));
 	}
 
-	// Abrir janela de castro de usuários do sistema
+	// Abrir janela de castro de usuarios do sistema
 	@FXML
 	private void dialogUsuarios(ActionEvent event) throws IOException {
 		FXMLLoader fXMLLoader = new FXMLLoader();
@@ -73,7 +80,7 @@ public class UsuarioController implements Initializable {
 		stage.setResizable(false);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("Usuários");
+		stage.setTitle("Usuarios");
 		stage.show();
 	}
 
