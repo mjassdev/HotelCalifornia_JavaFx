@@ -28,14 +28,16 @@
       </Pane>
       <Pane layoutY="124.0" prefHeight="60.0" prefWidth="300.0">
          <children>
-            <Label layoutX="28.0" layoutY="22.0" style="-fx-text-fill: white;" text="Usuario" />
+            <Label layoutX="28.0" layoutY="22.0" style="-fx-text-fill: white;" text="CPF" />
             <TextField fx:id="tfUsuario" layoutX="95.0" layoutY="17.0" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: white; -fx-background-radius: 0px;" />
+            <FontAwesomeIcon fx:id="excCpf" glyphStyle="-fx-fill:red" iconName="EXCLAMATION" layoutX="285.0" layoutY="35.0" />
          </children>
       </Pane>
       <Pane layoutY="184.0" prefHeight="60.0" prefWidth="300.0">
          <children>
             <Label layoutX="28.0" layoutY="22.0" style="-fx-text-fill: white;" text="Senha" />
             <PasswordField fx:id="tfSenha" layoutX="95.0" layoutY="17.0" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: white; -fx-background-radius: 0px;" />
+            <FontAwesomeIcon fx:id="excSenha" glyphStyle="-fx-fill:red" iconName="EXCLAMATION" layoutX="284.0" layoutY="34.0" />
          </children>
       </Pane>
       <JFXButton fx:id="btEntrar" layoutX="96.0" layoutY="265.0" onAction="#acessarSistema" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #104E8B; -FX-TEXT-FILL: WHITE; -fx-background-radius: 0px;" text="ENTRAR" />

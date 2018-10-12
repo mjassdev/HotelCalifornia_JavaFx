@@ -33,6 +33,8 @@ public class LoginController implements Initializable {
     @FXML private PasswordField tfSenha;
     @FXML private Label erro;
     @FXML private Label erropreenchimento;
+    @FXML private FontAwesomeIcon excCpf;
+    @FXML private FontAwesomeIcon excSenha;
 
 
     
@@ -41,6 +43,8 @@ public class LoginController implements Initializable {
 		// TODO Auto-generated method stub
 		erro.setVisible(false);
 		erropreenchimento.setVisible(false);
+		excCpf.setVisible(false);
+		excSenha.setVisible(false);
 		
 	}
 	
@@ -48,6 +52,8 @@ public class LoginController implements Initializable {
     void acessarSistema(ActionEvent event) throws IOException {
 		erro.setVisible(false);
 		erropreenchimento.setVisible(false);
+		excCpf.setVisible(false);
+		excSenha.setVisible(false);
 
 			UsuarioRepository repository = new UsuarioRepository(JPAFactory.getEntityManager());
 			List<Usuario> usuario = repository.getLogin(tfUsuario.getText(), tfSenha.getText());
@@ -64,7 +70,14 @@ public class LoginController implements Initializable {
 				stage.close();
 			}else if (tfUsuario.getText().isEmpty() || tfSenha.getText().isEmpty()) {
 
-				erropreenchimento.setVisible(true);
+				if(tfUsuario.getText().isEmpty()) {
+					erropreenchimento.setVisible(true);
+					excCpf.setVisible(true);
+				}if(tfSenha.getText().isEmpty()) {
+					erropreenchimento.setVisible(true);
+					excSenha.setVisible(true);
+				}
+				
 			}
 			else{
 
