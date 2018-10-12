@@ -72,7 +72,7 @@ public class CadastraUsuarioController extends ControllerSuper implements Initia
 	@FXML
 	void handleAlterar(ActionEvent event) {
 
-		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
+		String nome = tfNome.getText(), cpf = tfCpf.getText(), endereco = tfEndereco.getText(),
 				email = tfEmail.getText();
 
 		usuario.setCpf(tfCpf.getText());
@@ -111,7 +111,7 @@ public class CadastraUsuarioController extends ControllerSuper implements Initia
 
 	@FXML
 	void handleIncluir(ActionEvent event) throws IOException {
-		usuario = new Usuario(tfCpf.getText(), tfNome.getText(), tfEndereco.getText(), tfEmail.getText(), datePickerAniversario.getValue(), pfSenha.getText());
+		usuario = new Usuario(tfNome.getText(), tfCpf.getText(), tfEndereco.getText(), tfEmail.getText(), datePickerAniversario.getValue(), pfSenha.getText());
 		if(pfSenha.getText().equals(pfSenha1.getText())) {
 			super.save(usuario);
 			super.dialogConfirma();

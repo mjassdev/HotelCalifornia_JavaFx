@@ -35,12 +35,9 @@ public class LoginController implements Initializable {
     @FXML private Label erropreenchimento;
     @FXML private FontAwesomeIcon excCpf;
     @FXML private FontAwesomeIcon excSenha;
-
-
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		erro.setVisible(false);
 		erropreenchimento.setVisible(false);
 		excCpf.setVisible(false);
@@ -48,8 +45,7 @@ public class LoginController implements Initializable {
 		
 	}
 	
-    @FXML
-    void acessarSistema(ActionEvent event) throws IOException {
+    @FXML void acessarSistema(ActionEvent event) throws IOException {
 		erro.setVisible(false);
 		erropreenchimento.setVisible(false);
 		excCpf.setVisible(false);
@@ -77,21 +73,13 @@ public class LoginController implements Initializable {
 					erropreenchimento.setVisible(true);
 					excSenha.setVisible(true);
 				}
-				
 			}
 			else{
-
 				erro.setVisible(true);
 			}
-
-
-
-		
-    	
     }
 
-    @FXML
-    void handleFecharJanela(MouseEvent event) {
+    @FXML void handleFecharJanela(MouseEvent event) {
 		Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
 		stage.close(); // Fechando o Stage
     }

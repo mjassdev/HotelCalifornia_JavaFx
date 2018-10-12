@@ -82,7 +82,7 @@ public class Hospede extends ControllerSuper implements Initializable {
 
 	@FXML
 	void handleIncluir(ActionEvent event) {
-		cliente = new Cliente(tfCpf.getText(), tfNome.getText(), tfEndereco.getText(), tfEmail.getText(), datePickerAniversario.getValue());
+		cliente = new Cliente(tfNome.getText(), tfCpf.getText(), tfEndereco.getText(), tfEmail.getText(), datePickerAniversario.getValue());
 		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(), email = tfEmail.getText();
 		super.save(cliente);
 		handleLimpar(event);
