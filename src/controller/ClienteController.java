@@ -62,8 +62,7 @@ public class ClienteController extends ControllerSuper implements Initializable 
 	@FXML private Button btPesquisar;
 	@FXML private JFXButton btCadastrarCliente;
     @FXML private AnchorPane paneClientes;
-    @FXML
-    private JFXTextField tfNomeTeste;
+    @FXML private JFXTextField tfNomeTeste;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

@@ -62,7 +62,7 @@ public class UsuarioController extends ControllerSuper implements Initializable 
 		tcSenha.setCellValueFactory(new PropertyValueFactory<>("senha"));
 		tcEnderecoUsuario.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		tcPerfilUsuario.setCellValueFactory(new PropertyValueFactory<>("perfilUsuario"));
-	}
+	}	
 
 	// Abrir janela de cadastro de usuarios do sistema
 	@FXML

@@ -25,4 +25,15 @@ public class UsuarioRepository extends Repository<Usuario> {
 		}
 		return lista;
 	}
+	public List<Usuario> getLogin(String cpf, String senha) {
+		Query query = getEntityManager().createQuery("SELECT c FROM Usuario c WHERE lower(c.cpf) like(:cpf) AND lower(c.senha) like(:senha)");
+		query.setParameter("cpf",cpf);
+		query.setParameter("senha",senha);
+
+		List<Usuario> lista = query.getResultList();
+		if (lista == null) {
+			lista = new ArrayList<Usuario>();
+		}
+		return lista;
+	}
 }

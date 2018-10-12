@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #1874CD;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controller.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #1874CD;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
       <Pane layoutY="14.0" prefHeight="54.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
          <children>
@@ -30,17 +29,18 @@
       <Pane layoutY="124.0" prefHeight="60.0" prefWidth="300.0">
          <children>
             <Label layoutX="28.0" layoutY="22.0" style="-fx-text-fill: white;" text="Usuario" />
-            <TextField layoutX="95.0" layoutY="17.0" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: white; -fx-background-radius: 0px;" />
+            <TextField fx:id="tfUsuario" layoutX="95.0" layoutY="17.0" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: white; -fx-background-radius: 0px;" />
          </children>
       </Pane>
       <Pane layoutY="184.0" prefHeight="60.0" prefWidth="300.0">
          <children>
             <Label layoutX="28.0" layoutY="22.0" style="-fx-text-fill: white;" text="Senha" />
-            <PasswordField layoutX="95.0" layoutY="17.0" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: white; -fx-background-radius: 0px;" />
+            <PasswordField fx:id="tfSenha" layoutX="95.0" layoutY="17.0" prefHeight="27.0" prefWidth="184.0" style="-fx-background-color: white; -fx-background-radius: 0px;" />
          </children>
       </Pane>
       <JFXButton fx:id="btEntrar" layoutX="96.0" layoutY="265.0" onAction="#acessarSistema" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #104E8B; -FX-TEXT-FILL: WHITE; -fx-background-radius: 0px;" text="ENTRAR" />
-      <Label layoutX="100.0" layoutY="350.0" style="-fx-text-fill: white;" text="Esqueci a senha" />
+      <Label fx:id="erro" layoutX="42.0" layoutY="343.0" style="-fx-text-fill: yellow;" text="Usuário ou senha não encontrados." textFill="#f2ff00" />
       <FontAwesomeIcon fx:id="btFechar" glyphStyle="-fx-fill:white" iconName="CLOSE" layoutX="280.0" layoutY="12.0" onMouseClicked="#handleFecharJanela" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="erropreenchimento" layoutX="21.0" layoutY="343.0" style="-fx-text-fill: yellow;" text="É obrigatório o preenchimento dos campos" textFill="#f2ff00" />
    </children>
 </AnchorPane>
