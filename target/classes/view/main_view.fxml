@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styles/global.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<StackPane prefHeight="600.0" prefWidth="1366.0" stylesheets="@../styles/global.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -20,7 +20,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Pane maxHeight="400.0" maxWidth="250.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #00A2D3;">
+                        <Pane maxHeight="400.0" maxWidth="250.0" minHeight="50.0" minWidth="50.0" prefHeight="60.0" prefWidth="387.0" style="-fx-background-color: #00A2D3;">
                            <children>
                               <Label layoutX="53.0" layoutY="20.0" style="-fx-text-fill: white;" text="HOTEL CALIFÓRNIA" />
                               <FontAwesomeIcon glyphStyle="-fx-fill:white" iconName="HOTEL" layoutX="31.0" layoutY="33.0" />
@@ -44,32 +44,32 @@
                               <AnchorPane fx:id="settingsContainer" centerShape="false" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="userProfileTab" closable="false" text="User Profile">
+                        <Tab fx:id="userProfileTab" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="userProfileContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabReservas" closable="false" text="Reservas">
+                        <Tab fx:id="tabReservas" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="reservasContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabProdutos" closable="false" text="Produtos">
+                        <Tab fx:id="tabProdutos" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="produtosContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabUsuarios" closable="false" text="Usuarios">
+                        <Tab fx:id="tabUsuarios" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="usuarioContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabRelatorios" closable="false" text="Relatorios">
+                        <Tab fx:id="tabRelatorios" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="relatoriosContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
-                        <Tab fx:id="tabConfiguracoes" closable="false" text="Configuracoes">
+                        <Tab fx:id="tabConfiguracoes" closable="false" text="Settings">
                            <content>
                               <AnchorPane fx:id="configContainer" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
@@ -85,5 +85,15 @@
             </HBox>
          </children>
       </VBox>
+      <AnchorPane maxHeight="60.0" minHeight="60.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="1366.0" StackPane.alignment="TOP_LEFT">
+         <children>
+            <Pane prefHeight="46.0" prefWidth="1219.0">
+               <children>
+                  <FontAwesomeIcon iconName="USER" layoutX="112.0" layoutY="37.0" size="1.8em" />
+                  <Label layoutX="54.0" layoutY="20.0" text="Daniel" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>

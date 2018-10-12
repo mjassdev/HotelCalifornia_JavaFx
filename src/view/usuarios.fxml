@@ -32,7 +32,7 @@
                   <HBox alignment="CENTER_RIGHT" layoutY="4.0">
                      <children>
                         <TextField fx:id="tfPesquisar" promptText="Pesquisar" style="-fx-background-color: transparent; -fx-text-fill: white;" />
-                        <Button fx:id="btPesquisar" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: transparent;">
+                        <Button fx:id="btPesquisar" mnemonicParsing="false" onAction="#handleBuscar" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: transparent;">
                            <graphic>
                               <FontAwesomeIcon glyphStyle="-fx-fill:#fff" iconName="SEARCH" nodeOrientation="RIGHT_TO_LEFT" size="1.3em" />
                            </graphic>
@@ -44,14 +44,16 @@
                   </HBox>
                </children>
             </Pane>
-            <TableView fx:id="tvUsuarios" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/stylesheet.css">
+            <TableView fx:id="tvUsuarios" editable="true" prefHeight="560.0" prefWidth="800.0" stylesheets="@../styles/stylesheet.css">
                <columns>
                   <TableColumn fx:id="tcIdUsuario" editable="false" prefWidth="39.0" text="Id" />
-                  <TableColumn fx:id="tcCpfUsuario" editable="false" prefWidth="98.0" text="CPF" />
-                  <TableColumn fx:id="tcNomeUsuario" editable="false" prefWidth="193.0" text="Nome" />
+                  <TableColumn fx:id="tcCpfUsuario" editable="false" prefWidth="64.0" text="CPF" />
+                  <TableColumn fx:id="tcNomeUsuario" editable="false" prefWidth="93.0" text="Nome" />
+                  <TableColumn fx:id="tcDataNascimento" editable="false" prefWidth="140.0" text="Data de Nascimento" />
                   <TableColumn fx:id="tcEmailUsuario" editable="false" minWidth="0.0" prefWidth="98.0" text="Email" />
-                  <TableColumn fx:id="tcEnderecoUsuario" editable="false" maxWidth="131.0" minWidth="100.0" prefWidth="131.0" text="Endereço" />
-                  <TableColumn fx:id="tcPerfilUsuario" prefWidth="96.0" text="Perfil do Usuário" />
+                  <TableColumn fx:id="tcEnderecoUsuario" editable="false" maxWidth="218.0" minWidth="71.0" prefWidth="87.0" text="Endereço" />
+                  <TableColumn fx:id="tcPerfilUsuario" prefWidth="200.0" text="Perfil do Usuário" />
+                  <TableColumn fx:id="tcSenha" prefWidth="60.0" text="Senha" />
                </columns>
                <styleClass>
                   <String fx:value="table-row-cell" />

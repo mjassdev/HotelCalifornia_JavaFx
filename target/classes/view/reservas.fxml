@@ -21,7 +21,7 @@
    <children>
       <VBox layoutX="310.0" layoutY="19.0" prefHeight="600.0" prefWidth="724.0" styleClass="parent" stylesheets="@../styles/stylesheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane prefHeight="40.0" prefWidth="724.0" style="-fx-background-color: #4A708B;" styleClass="sidebar">
+            <Pane prefHeight="40.0" prefWidth="724.0" style="-fx-background-color: #00A2D3;">
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="10.0" radius="4.5" width="10.0" />
                </effect>
@@ -65,7 +65,7 @@
       </VBox>
       <HBox fillHeight="false" prefHeight="32.0" prefWidth="126.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
          <children>
-            <JFXButton fx:id="btCadastrarReserva" alignment="CENTER" onAction="#dialogReservas" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #333645; -fx-text-fill: white; -fx-background-radius: 0px;" text="NOVA RESERVA">
+            <JFXButton fx:id="btCadastrarReserva" alignment="CENTER" onAction="#dialogReservas" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: white; -fx-text-fill: #1874CD; -fx-background-radius: 0px;" text="NOVA RESERVA">
                <font>
                   <Font size="10.0" />
                </font>

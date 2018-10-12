@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +14,9 @@ import javax.persistence.Query;
 import org.w3c.dom.events.EventException;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXPasswordField;
 
 import application.Main;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -44,23 +48,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import model.Cliente;
+import model.Usuario;
+import repository.UsuarioRepository;
 
-public class CadastraUsuarioController implements Initializable {
-
-	private Cliente cliente;
-
-    @FXML
-    private FontAwesomeIcon btFechar;
-
-	@FXML
-	private TabPane tablePaneAbas;
-
-	@FXML
-	private TextField tfNome, tfCpf, tfEndereco, tfEmail;
-
-	@FXML
-	private Button btLimpar, btExcluir, btAlterar, btIncluir;
+public class CadastraUsuarioController extends ControllerSuper implements Initializable {
+	private Usuario usuario;
+	
+    @FXML private JFXDatePicker datePickerAniversario;
+    @FXML private FontAwesomeIcon btFechar;
+	@FXML private TabPane tablePaneAbas;
+	@FXML private TextField tfNome, tfCpf, tfEndereco, tfEmail;
+	@FXML private Button btLimpar, btExcluir, btAlterar, btIncluir;
+    @FXML private JFXPasswordField pfSenha;
+    @FXML private JFXPasswordField pfSenha1;
+    
+    @FXML private JFXComboBox<?> cbPerfilUsuario;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -73,10 +75,10 @@ public class CadastraUsuarioController implements Initializable {
 		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
 				email = tfEmail.getText();
 
-		cliente.setCpf(tfCpf.getText());
-		cliente.setNome(tfNome.getText());
-		cliente.setEmail(tfEmail.getText());
-		cliente.setEndereco(tfEndereco.getText());
+		usuario.setCpf(tfCpf.getText());
+		usuario.setNome(tfNome.getText());
+		usuario.setEmail(tfEmail.getText());
+		usuario.setEndereco(tfEndereco.getText());
 
 		Alert al = new Alert(AlertType.CONFIRMATION);
 		al.setHeaderText("Alterar Cadastro");
@@ -91,7 +93,7 @@ public class CadastraUsuarioController implements Initializable {
 
 		EntityManager em = JPAFactory.getEntityManager();
 		em.getTransaction().begin();
-		em.merge(cliente);
+		em.merge(usuario);
 		em.getTransaction().commit();
 		em.close();
 
@@ -102,61 +104,24 @@ public class CadastraUsuarioController implements Initializable {
 	@FXML
 	void handleExcluir(ActionEvent event) {
 		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
-				email = tfEmail.getText();
-
-		Alert al = new Alert(AlertType.CONFIRMATION);
-		al.setHeaderText("Excluir Cadastro");
-		al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email);
-		Optional<ButtonType> result = al.showAndWait();
-		if (result.get() == ButtonType.OK) {
-
-			Alert alInfo = new Alert(AlertType.INFORMATION);
-			alInfo.setHeaderText("Cadastro Removido com Sucesso!");
-			alInfo.show();
-		}
-
-		EntityManager em = JPAFactory.getEntityManager();
-		em.getTransaction().begin();
-		cliente = em.merge(cliente);
-		em.remove(cliente);
-		em.getTransaction().commit();
-		em.close();
-
+				email = tfEmail.getText(), senha = pfSenha.getText();
+		super.remove(usuario);
 		handleLimpar(event);
 	}
 
 	@FXML
-	void handleIncluir(ActionEvent event) {
-
-		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
-				email = tfEmail.getText();
-
-		cliente = new Cliente(tfNome.getText(), tfCpf.getText(), tfEndereco.getText(), tfEmail.getText());
-		if (nome == null || cpf == null || endereco == null) {
-
-		} else {
-			Alert al = new Alert(AlertType.CONFIRMATION);
-			al.setHeaderText("Novo Cadastro");
-			al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email);
-			Optional<ButtonType> result = al.showAndWait();
-			if (result.get() == ButtonType.OK) {
-				try {
-					EntityManager em = JPAFactory.getEntityManager();
-					em.getTransaction().begin();
-					em.persist(cliente);
-					em.getTransaction().commit();
-					em.close();
-
-					Alert alInfo = new Alert(AlertType.INFORMATION);
-					alInfo.setHeaderText("Cadastro Realizado com Sucesso!");
-					alInfo.show();
-				} catch (EventException e) {
-
-				}
-
-			}
+	void handleIncluir(ActionEvent event) throws IOException {
+		usuario = new Usuario(tfCpf.getText(), tfNome.getText(), tfEndereco.getText(), tfEmail.getText(), datePickerAniversario.getValue(), pfSenha.getText());
+		if(pfSenha.getText().equals(pfSenha1.getText())) {
+			super.save(usuario);
+			super.dialogConfirma();
+			handleLimpar(event);
+		}else if(!pfSenha.getText().equals(pfSenha1.getText())){
+			super.dialogErroSenhas();
 		}
-		handleLimpar(event);
+		else {
+			super.dialogErro();
+		}
 	}
 
 	@FXML
@@ -165,22 +130,20 @@ public class CadastraUsuarioController implements Initializable {
 		stage.close(); // Fechando o Stage
 	}
 
-	@FXML	
+	@FXML
 	void handleLimpar(ActionEvent event) {
 		tfCpf.setText("");
 		tfNome.setText("");
 		tfEmail.setText("");
 		tfEndereco.setText("");
-		cliente = new Cliente();
-
+		datePickerAniversario.setValue(null);
+		usuario = new Usuario();
 		atualizarBotoes();
 	}
 
 	private void atualizarBotoes() {
-
-		btIncluir.setDisable(cliente.getId() != null);
-		btAlterar.setDisable(cliente.getId() == null);
-		btExcluir.setDisable(cliente.getId() == null);
-
+		btIncluir.setDisable(usuario.getId() != null);
+		btAlterar.setDisable(usuario.getId() == null);
+		btExcluir.setDisable(usuario.getId() == null);
 	}
 }

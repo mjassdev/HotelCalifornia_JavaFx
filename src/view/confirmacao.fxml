@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="150.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controller.fecharController">
+   <children>
+      <Label layoutX="36.0" layoutY="53.0" text="CADASTRO REALIZADO COM SUCESSO!">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btFechar" layoutX="165.0" layoutY="94.0" onMouseClicked="#handleFecharJanela" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #057dc0; -fx-text-fill: white;" text="OK" />
+   </children>
+</AnchorPane>

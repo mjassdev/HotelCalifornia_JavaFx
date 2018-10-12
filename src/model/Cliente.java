@@ -1,35 +1,41 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
 
 @Entity
-public class Cliente implements Serializable{
+public class Cliente extends DefaultEntity<Cliente> implements Serializable{
 
 	private static final long serialVersionUID = -4977468047936686376L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+
 	private String nome;
 	private String cpf;
 	private String endereco;
 	private String email;
 	
+	@Column(columnDefinition="Date")
+	private LocalDate dataAniversario;
+	
 	public Cliente(){
 		
 	}
 	
-	public Cliente(String nome, String cpf, String endereco, String email) {
+	public Cliente(String nome, String cpf, String endereco, String email, LocalDate dataAniversario) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.email = email;
+		this.dataAniversario = dataAniversario;
 	}
 	
 	
@@ -58,12 +64,14 @@ public class Cliente implements Serializable{
 		this.email = email;
 	}
 
-	public Integer getId() {
-		return id;
+
+
+	public LocalDate getDataAniversario() {
+		return dataAniversario;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setDataAniversario(LocalDate dataAniversario) {
+		this.dataAniversario = dataAniversario;
 	}
 	
 	

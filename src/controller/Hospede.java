@@ -1,10 +1,15 @@
 package controller;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javax.persistence.EntityManager;
 import org.w3c.dom.events.EventException;
+
+import com.jfoenix.controls.JFXDatePicker;
+
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import factory.JPAFactory;
 import javafx.event.ActionEvent;
@@ -19,24 +24,20 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import model.Cliente;
+import repository.ClienteRepository;
 
-public class Hospede implements Initializable {
+public class Hospede extends ControllerSuper implements Initializable {
 	private Cliente cliente;
 
-    @FXML
-    private FontAwesomeIcon btFechar;
-
-	@FXML
-	private TabPane tablePaneAbas;
-
-	@FXML
-	private TextField tfNome, tfCpf, tfEndereco, tfEmail;
-
-	@FXML
-	private Button btLimpar, btExcluir, btAlterar, btIncluir;
+	@FXML private FontAwesomeIcon btFechar;
+	@FXML private JFXDatePicker datePickerAniversario;
+	@FXML private TabPane tablePaneAbas;
+	@FXML private TextField tfNome, tfCpf, tfEndereco, tfEmail;
+	@FXML private Button btLimpar, btExcluir, btAlterar, btIncluir;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 
 	}
 
@@ -74,61 +75,16 @@ public class Hospede implements Initializable {
 
 	@FXML
 	void handleExcluir(ActionEvent event) {
-		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
-				email = tfEmail.getText();
-
-		Alert al = new Alert(AlertType.CONFIRMATION);
-		al.setHeaderText("Excluir Cadastro");
-		al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email);
-		Optional<ButtonType> result = al.showAndWait();
-		if (result.get() == ButtonType.OK) {
-
-			Alert alInfo = new Alert(AlertType.INFORMATION);
-			alInfo.setHeaderText("Cadastro Removido com Sucesso!");
-			alInfo.show();
-		}
-
-		EntityManager em = JPAFactory.getEntityManager();
-		em.getTransaction().begin();
-		cliente = em.merge(cliente);
-		em.remove(cliente);
-		em.getTransaction().commit();
-		em.close();
-
+		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(), email = tfEmail.getText();
+		super.remove(cliente);
 		handleLimpar(event);
 	}
 
 	@FXML
 	void handleIncluir(ActionEvent event) {
-
-		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
-				email = tfEmail.getText();
-
-		cliente = new Cliente(tfNome.getText(), tfCpf.getText(), tfEndereco.getText(), tfEmail.getText());
-		if (nome == null || cpf == null || endereco == null) {
-
-		} else {
-			Alert al = new Alert(AlertType.CONFIRMATION);
-			al.setHeaderText("Novo Cadastro");
-			al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email);
-			Optional<ButtonType> result = al.showAndWait();
-			if (result.get() == ButtonType.OK) {
-				try {
-					EntityManager em = JPAFactory.getEntityManager();
-					em.getTransaction().begin();
-					em.persist(cliente);
-					em.getTransaction().commit();
-					em.close();
-
-					Alert alInfo = new Alert(AlertType.INFORMATION);
-					alInfo.setHeaderText("Cadastro Realizado com Sucesso!");
-					alInfo.show();
-				} catch (EventException e) {
-
-				}
-
-			}
-		}
+		cliente = new Cliente(tfCpf.getText(), tfNome.getText(), tfEndereco.getText(), tfEmail.getText(), datePickerAniversario.getValue());
+		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(), email = tfEmail.getText();
+		super.save(cliente);
 		handleLimpar(event);
 	}
 
@@ -138,23 +94,21 @@ public class Hospede implements Initializable {
 		stage.close(); // Fechando o Stage
 	}
 
-	@FXML	
+	@FXML
 	void handleLimpar(ActionEvent event) {
 		tfCpf.setText("");
 		tfNome.setText("");
 		tfEmail.setText("");
 		tfEndereco.setText("");
+		datePickerAniversario.setValue(null);
 		cliente = new Cliente();
-
 		atualizarBotoes();
 	}
 
 	private void atualizarBotoes() {
-
 		btIncluir.setDisable(cliente.getId() != null);
 		btAlterar.setDisable(cliente.getId() == null);
 		btExcluir.setDisable(cliente.getId() == null);
-
 	}
 
 }

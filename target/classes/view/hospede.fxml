@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
@@ -10,17 +11,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="400.0" style="-fx-border-color: #333645;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Hospede">
+<AnchorPane fx:id="paneClientes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="400.0" style="-fx-border-color: #333645;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Hospede">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="30.0">
                <children>
-                  <JFXButton fx:id="btFechar" onAction="#handleFecharJanela" prefHeight="25.0" prefWidth="23.0" style="-fx-background-color: TRANSPARENT;" text=" " textAlignment="RIGHT" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <FontAwesomeIcon iconName="CLOSE" />
-                     </graphic>
-                  </JFXButton>
+                  <FontAwesomeIcon fx:id="btFechar" iconName="CLOSE" onMouseClicked="#handleFecharJanela">
+                     <HBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
@@ -40,8 +41,14 @@
                            <padding>
                               <Insets right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfNome" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfNome" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: white;" unFocusColor="BLACK">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -53,8 +60,14 @@
                            <padding>
                               <Insets right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfCpf" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfCpf" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: white;" unFocusColor="BLACK">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
@@ -63,8 +76,14 @@
                            <padding>
                               <Insets right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfEndereco" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfEndereco" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: white;" unFocusColor="BLACK">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
@@ -73,8 +92,31 @@
                            <padding>
                               <Insets right="5.0" />
                            </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfEmail" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: #e8e8e8;" unFocusColor="#2fa4bc" />
+                        <JFXTextField fx:id="tfEmail" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: white;" unFocusColor="BLACK">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="195.0" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="D. Nasc." textFill="WHITE">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXDatePicker fx:id="datePickerAniversario" defaultColor="#00a2d3" prefWidth="300.0">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXDatePicker>
                      </children>
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="400.0">
