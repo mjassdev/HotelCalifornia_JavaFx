@@ -2,31 +2,42 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import factory.JPAFactory;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Cliente;
+import model.Produto;
+import repository.ClienteRepository;
 
 public class ProdutosController implements Initializable{
-
-    @FXML
-    private JFXButton btNovoCadastro, btLancarProdutos, btAjusteEstoque, btRelatorioEstoque;
+	private Produto produto;
 	
+    @FXML private JFXButton btNovoCadastro, btLancarProdutos, btAjusteEstoque, btRelatorioEstoque;
+    @FXML private TableColumn<Produto, Integer> tcIdProduto;
+    @FXML private TableColumn<Produto, String> tcDescricaoProduto;
+    @FXML private TableColumn<Produto, String> tcUnidade;
+    @FXML private TableColumn<Produto, String> tcQuantidade;
+    @FXML private TableColumn<Produto, String> tcPrecoUnitario;
+    @FXML private TableColumn<Produto, String> tcPrecoTotal;
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
 	}
-	
-
 
     @FXML
     void AjustarEstoque(ActionEvent event) throws IOException {
@@ -38,7 +49,7 @@ public class ProdutosController implements Initializable{
 		stage.setResizable(false);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("NOVO PRODUTO");
+		stage.setTitle("AJUSTAR ESTOQUE");
 		stage.show();
     }
 
@@ -66,7 +77,7 @@ public class ProdutosController implements Initializable{
 		stage.setResizable(false);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("NOVO PRODUTO");
+		stage.setTitle("RELATORIO DE ESTOQUE");
 		stage.show();
     }
 
@@ -80,14 +91,9 @@ public class ProdutosController implements Initializable{
 		stage.setResizable(false);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("NOVO PRODUTO");
+		stage.setTitle("LANÇAR");
 		stage.show();
     }
-
-
-	
-	
-	
-	
+    
 	
 }

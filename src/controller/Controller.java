@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,14 +28,11 @@ import javax.swing.GroupLayout.Alignment;
 
 public class Controller {
 
-    @FXML
-    private JFXTabPane tabContainer;
-    @FXML
-    private Tab userProfileTab, settingsTab, logoutTab, tabReservas, tabProdutos, tabUsuarios, tabRelatorios, tabConfiguracoes ;
-    @FXML
-    private AnchorPane userProfileContainer, settingsContainer, reservasContainer, produtosContainer,  usuarioContainer, relatoriosContainer, configContainer ;
-    @FXML
-    private TextField tituloAba;
+    @FXML private JFXTabPane tabContainer;
+    @FXML private Tab userProfileTab, settingsTab, logoutTab, tabReservas, tabProdutos, tabUsuarios, tabRelatorios, tabConfiguracoes ;
+    @FXML private AnchorPane userProfileContainer, settingsContainer, reservasContainer, produtosContainer,  usuarioContainer, relatoriosContainer, configContainer ;
+    @FXML private TextField tituloAba;
+    @FXML private TextField nomeUsuario;
     
     private double tabWidth = 250.0;
     private double tabHeight = 60;
@@ -45,6 +43,7 @@ public class Controller {
     @FXML
     public void initialize() {
         configureView();
+//        nomeUsuario.setText();
     }
 
     /// Private
@@ -72,22 +71,18 @@ public class Controller {
             Tab currentTab = (Tab) event.getTarget();
             if (currentTab.isSelected()) {
                 tabContainer.getSelectionModel().select(lastSelectedTabIndex);
-
-                // TODO: logout action
-                // good place to show Dialog window with Yes / No question
                 System.out.println("Logging out!");
             }
         };
 
         configureTab(userProfileTab, "Clientes", "/imagens/users.png", userProfileContainer, getClass().getResource("/view/cliente2.fxml"), replaceBackgroundColorHandler);
-        configureTab(settingsTab, "Quartos", "/imagens/bed.png", settingsContainer, getClass().getResource("/view/quartos.fxml"), replaceBackgroundColorHandler);
+        configureTab(settingsTab, "Quartos", "/imagens/bed.png", settingsContainer, getClass().getResource("/view/quartos2.fxml"), replaceBackgroundColorHandler);
         configureTab(tabProdutos, "Produtos", "/imagens/box.png", produtosContainer, getClass().getResource("/view/produtos.fxml"), replaceBackgroundColorHandler);
         configureTab(tabRelatorios, "Relatorios", "/imagens/report.png", relatoriosContainer, getClass().getResource("/view/relatorios.fxml"), replaceBackgroundColorHandler);
         configureTab(tabUsuarios, "Usuarios", "/imagens/user.png", usuarioContainer, getClass().getResource("/view/usuarios.fxml"), replaceBackgroundColorHandler);
         configureTab(tabReservas, "Reservas", "/imagens/mala.png", reservasContainer, getClass().getResource("/view/reservas.fxml"), replaceBackgroundColorHandler);
         configureTab(tabConfiguracoes, "Configuracoes", "/imagens/config.png", configContainer, getClass().getResource("/view/settings.fxml"), replaceBackgroundColorHandler);
-
-        configureTab(logoutTab, "Sair", "/imagens/door.png", null, null, logoutHandler);
+        configureTab(logoutTab, "Sair", "/imagens/door.png", configContainer, getClass().getResource("/view/login.fxml"), logoutHandler);
 
         //userProfileTab.setStyle("-fx-background-color: -fx-focus-color;");
     }

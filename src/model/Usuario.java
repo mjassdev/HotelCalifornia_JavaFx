@@ -9,9 +9,6 @@ import javax.persistence.Entity;
 @Entity
 public class Usuario extends DefaultEntity<Usuario> implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2748837857727564816L;
 	
 	private String nome;

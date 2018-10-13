@@ -45,7 +45,7 @@ public class LoginController implements Initializable {
 		
 	}
 	
-    @FXML void acessarSistema(ActionEvent event) throws IOException {
+    @FXML public void acessarSistema(ActionEvent event) throws IOException {
 		erro.setVisible(false);
 		erropreenchimento.setVisible(false);
 		excCpf.setVisible(false);
@@ -59,11 +59,11 @@ public class LoginController implements Initializable {
 				scene.setTitle("HOTEL CALIFORNIA");
 				scene.setScene(new Scene(root, 1366, 768));
 				scene.setResizable(true);
-				scene.showAndWait();
-
 				// Mudar quando criar metodo de validação de acesso
 				Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
 				stage.close();
+				scene.showAndWait();
+
 			}else if (tfUsuario.getText().isEmpty() || tfSenha.getText().isEmpty()) {
 
 				if(tfUsuario.getText().isEmpty()) {
@@ -77,6 +77,7 @@ public class LoginController implements Initializable {
 			else{
 				erro.setVisible(true);
 			}
+
     }
 
     @FXML void handleFecharJanela(MouseEvent event) {

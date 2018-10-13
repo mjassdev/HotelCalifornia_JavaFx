@@ -10,12 +10,12 @@
    <children>
       <TableView layoutX="52.0" layoutY="122.0" prefHeight="200.0" prefWidth="524.0" stylesheets="@../styles/global.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="COD." />
-          <TableColumn prefWidth="102.0" text="DESCRIÇÃO" />
-            <TableColumn prefWidth="48.0" text="UND." />
-            <TableColumn prefWidth="113.0" text="Q. ESTOQUE" />
-            <TableColumn prefWidth="101.0" text="P. UNITÁRIO" />
-            <TableColumn prefWidth="99.0" text="P. TOTAL" />
+          <TableColumn fx:id="tcIdProduto" prefWidth="75.0" text="COD." />
+          <TableColumn fx:id="tcDescricaoProduto" prefWidth="102.0" text="DESCRIÇÃO" />
+            <TableColumn fx:id="tcUnidade" prefWidth="48.0" text="UND." />
+            <TableColumn fx:id="tcQuantidade" prefWidth="113.0" text="Q. ESTOQUE" />
+            <TableColumn fx:id="tcPrecoUnitario" prefWidth="101.0" text="P. UNITÁRIO" />
+            <TableColumn fx:id="tcPrecoTotal" prefWidth="99.0" text="P. TOTAL" />
         </columns>
          <styleClass>
             <String fx:value="headers-region" />

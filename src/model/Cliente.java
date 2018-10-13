@@ -15,7 +15,6 @@ import javax.persistence.SequenceGenerator;
 public class Cliente extends DefaultEntity<Cliente> implements Serializable{
 
 	private static final long serialVersionUID = -4977468047936686376L;
-	
 
 	private String nome;
 	private String cpf;

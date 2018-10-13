@@ -89,8 +89,8 @@
          <children>
             <Pane prefHeight="46.0" prefWidth="1219.0">
                <children>
-                  <FontAwesomeIcon iconName="USER" layoutX="112.0" layoutY="37.0" size="1.8em" />
-                  <Label layoutX="54.0" layoutY="20.0" text="Daniel" />
+                  <FontAwesomeIcon iconName="USER" layoutX="160.0" layoutY="36.0" size="1.8em" />
+                  <TextField fx:id="nomeUsuario" layoutX="16.0" layoutY="13.0" prefHeight="27.0" prefWidth="135.0" style="-fx-background-color: transparent;" />
                </children>
             </Pane>
          </children>
