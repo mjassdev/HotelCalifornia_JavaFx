@@ -53,6 +53,8 @@ public class QuartoController implements Initializable{
 
 		QuartoRepository repository = new QuartoRepository(JPAFactory.getEntityManager());
 		Object contagem = repository.getCountQuartos();	
+		List<Quarto> ocupado = repository.getOcupado();
+		
 		
 		int totalQuartos=Integer.parseInt(contagem.toString());
 		
@@ -62,17 +64,24 @@ public class QuartoController implements Initializable{
 		int indexRow = 0;
 		int indexColuna = 0;
 		
-		while(i<totalQuartos) {
-			for(indexColuna = 0 ; indexColuna<10; indexColuna++) {
+		while(i<=totalQuartos) {
+			
+			for(indexColuna = 0 ; indexColuna<9; indexColuna++) {
 				JFXButton botaoQuarto = new JFXButton();
 				botaoQuarto.setPrefWidth(100);
 				botaoQuarto.setPrefHeight(100);
 				botaoQuarto.setStyle("-fx-background-color: #6ca6cd; -fx-background-radius: 0px; -fx-border-color: #000000");
 				botaoQuarto.setText("100");
-				grid.addColumn(indexColuna, botaoQuarto);
 				i++;
+				grid.addColumn(indexColuna, botaoQuarto);
+				if(i > totalQuartos) {
+					break;
+				}
+
 			}
-			indexRow++;
+			if(i > totalQuartos) {
+				break;
+			}
 			JFXButton botaoQuarto = new JFXButton();
 			botaoQuarto.setPrefWidth(100);
 			botaoQuarto.setPrefHeight(100);
@@ -80,12 +89,15 @@ public class QuartoController implements Initializable{
 			botaoQuarto.setText("100");
 			grid.addRow(indexRow, botaoQuarto);
 			
+			indexRow++;
 			i++;
 			
 		}
-		
-		
 		quartosPane.getChildren().addAll(grid);
 	}	
+	
+	
+	
+	
 
 }

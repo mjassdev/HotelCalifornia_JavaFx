@@ -24,6 +24,17 @@ public class QuartoRepository extends Repository<Quarto> {
 		return lista;
 	}
 	
+	public List<Quarto> getOcupado() {
+		Query query = getEntityManager().createQuery("SELECT c FROM Quarto c WHERE c.ocupado = true");
+//		query.setParameter("ocupado", "%" + ocupado + "%");
+
+		List<Quarto> lista = query.getResultList();
+		if (lista == null) {
+			lista = new ArrayList<Quarto>();
+		}
+		return lista;
+	}
+	
 	public Object getCountQuartos() {
 		Object contagem = null;
 		
@@ -33,4 +44,5 @@ public class QuartoRepository extends Repository<Quarto> {
 		return contagem;
 	}
 
+	
 }

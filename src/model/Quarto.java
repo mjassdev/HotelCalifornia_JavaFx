@@ -10,15 +10,17 @@ public class Quarto extends DefaultEntity<Quarto> implements Serializable{
 	private String numeroQuarto;
 	private String descricaoQuarto;
 	private String tipoQuarto;
+	private boolean ocupado;
 	
 	public Quarto() {
 		
 	}
 	
-	public Quarto(String numeroQuarto, String descricaoQuarto, String tipoQuarto) {
+	public Quarto(String numeroQuarto, String descricaoQuarto, String tipoQuarto, boolean ocupado) {
 		this.setNumeroQuarto(numeroQuarto);
 		this.setDescricaoQuarto(descricaoQuarto);
 		this.setTipoQuarto(tipoQuarto);
+		this.setOcupado(ocupado);
 	}
 	public String getNumeroQuarto() {
 		return numeroQuarto;
@@ -37,6 +39,14 @@ public class Quarto extends DefaultEntity<Quarto> implements Serializable{
 	}
 	public void setTipoQuarto(String tipoQuarto) {
 		this.tipoQuarto = tipoQuarto;
+	}
+
+	public boolean isOcupado() {
+		return ocupado;
+	}
+
+	public void setOcupado(boolean ocupado) {
+		this.ocupado = ocupado;
 	}
 	
 }
