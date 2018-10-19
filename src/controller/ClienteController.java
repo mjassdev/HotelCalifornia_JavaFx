@@ -17,25 +17,22 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 
+import factory.ClienteControllerFactory;
 import factory.JPAFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -48,6 +45,8 @@ import repository.ClienteRepository;
 public class ClienteController extends ControllerSuper implements Initializable {
 
 	private Cliente cliente;
+	private Stage stage;
+	private Parent parent;
 
 	@FXML private JFXDatePicker datePickerAniversario;
 	@FXML private TitledPane tPCliente;
@@ -90,25 +89,35 @@ public class ClienteController extends ControllerSuper implements Initializable 
 
 	@FXML
 	void handleMouseClicked(MouseEvent event) throws IOException {
-		if (event.getButton().equals(MouseButton.PRIMARY)) {
-			if (event.getClickCount() == 2) {
-				cliente = tvClientes.getSelectionModel().getSelectedItem();
 
-//				tfCpf.setText(cliente.getCpf());
-//				tfNome.setText(cliente.getNome());
-//				tfEndereco.setText(cliente.getEndereco());
-//				tfEmail.setText(cliente.getEmail());
-//				datePickerAniversario.setValue(cliente.getDataAniversario());
-				
-				tfNomeTeste.setText(cliente.getNome());
-				// selecionando a primeira Aba
-				// tablePaneAbas.getSelectionModel().select(0);
-				
-				tfCpf.requestFocus();
-				atualizarBotoes();
+    	if (event.getButton().equals(MouseButton.PRIMARY)) {
+			if (event.getClickCount() == 2) {
+	    		Hospede listagem = ClienteControllerFactory.getInstance();
+				cliente = tvClientes.getSelectionModel().getSelectedItem();
+	    		listagem.abrir(cliente);
+	    		
+				System.out.println(cliente.getNome());
+
 			}
-		}
+			
+    	}
+		
 	}
+	
+	public Cliente getClienteSelecionado() {
+		return cliente;
+	}
+	
+	public Cliente getCliente() {
+		if(cliente == null)
+			cliente = new Cliente();
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 
 	@FXML
 	void handleLimpar(ActionEvent event) {
@@ -142,6 +151,22 @@ public class ClienteController extends ControllerSuper implements Initializable 
 
 	public void setListaCliente(List<Cliente> listaCliente) {
 		this.listaCliente = listaCliente;
+	}
+
+	public Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+
+	public Parent getParent() {
+		return parent;
+	}
+
+	public void setParent(Parent parent) {
+		this.parent = parent;
 	}
 	
 	

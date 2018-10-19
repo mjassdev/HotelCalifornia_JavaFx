@@ -53,9 +53,9 @@ public class QuartoController implements Initializable{
 
 		QuartoRepository repository = new QuartoRepository(JPAFactory.getEntityManager());
 		Object contagem = repository.getCountQuartos();	
-		List<Quarto> ocupado = repository.getOcupado();
+//		List<Quarto> ocupado = repository.getOcupado();
 		
-		
+
 		int totalQuartos=Integer.parseInt(contagem.toString());
 		
 		System.out.println(totalQuartos);

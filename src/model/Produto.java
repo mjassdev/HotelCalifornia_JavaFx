@@ -29,7 +29,7 @@ public class Produto extends DefaultEntity<Produto> implements Serializable{
 //		this.unidade = unidade;
 		this.descricao = descricao;
 		this.genero = genero;
-		this.dataCaddastro = dataCadastro;
+		this.dataCaddastro= dataCadastro;
 	}
 	
 	public String getItem() {

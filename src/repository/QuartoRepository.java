@@ -25,10 +25,14 @@ public class QuartoRepository extends Repository<Quarto> {
 	}
 	
 	public List<Quarto> getOcupado() {
-		Query query = getEntityManager().createQuery("SELECT c FROM Quarto c WHERE c.ocupado = true");
+		Query query = getEntityManager().createNativeQuery("SELECT c FROM Quarto c WHERE c.ocupado = true");
 //		query.setParameter("ocupado", "%" + ocupado + "%");
-
+// (1,2,3,4,5) 1= id, 2=descricao, 3 = numeroquarto, 4=tipoquarto, 5=ocupado
+		
+		
 		List<Quarto> lista = query.getResultList();
+
+		
 		if (lista == null) {
 			lista = new ArrayList<Quarto>();
 		}
