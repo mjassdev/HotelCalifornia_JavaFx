@@ -1,6 +1,8 @@
 package repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import model.Cliente;
 import model.DefaultEntity;
@@ -17,12 +19,16 @@ public class Repository <T extends DefaultEntity<? super T>> {
 	public T save(T entity) {
 		return getEntityManager().merge(entity);
 	}
+	
+	
 
+	
+	
 	public void remove(T entity) {
-		getEntityManager().merge(entity);
+		entity = getEntityManager().merge(entity);
 		getEntityManager().remove(entity);
 	}
-
+	
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}

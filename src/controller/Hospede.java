@@ -53,7 +53,7 @@ public class Hospede extends ControllerSuper implements Initializable {
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.initStyle(StageStyle.UNDECORATED);
-		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.initModality(Modality.WINDOW_MODAL);
 
     	tfNome.setText(cliente.getNome());
     	tfCpf.setText(cliente.getCpf());
@@ -67,33 +67,47 @@ public class Hospede extends ControllerSuper implements Initializable {
 	@FXML
 	void handleAlterar(ActionEvent event) {
 
-		try {
-			cliente.setNome(tfNome.getText());
-			cliente.setCpf(tfCpf.getText());
-			cliente.setEndereco(tfEndereco.getText());
-			cliente.setEmail(tfEmail.getText());
-			cliente.setDataAniversario(datePickerAniversario.getValue());
-			
-			String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
-					email = tfEmail.getText();
-			LocalDate nascimento = datePickerAniversario.getValue();
-			
-			Alert al = new Alert(AlertType.CONFIRMATION);
-			al.setHeaderText("Alterar Cadastro");
-			al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email + "\nNascimento: " + nascimento);
-			Optional<ButtonType> result = al.showAndWait();
-			if (result.get() == ButtonType.OK) {
+		getCliente().getId();
+		getCliente().setNome(tfNome.getText());
+		getCliente().setNome(tfNome.getText());
+    	getCliente().setEndereco(tfEndereco.getText());
+    	getCliente().setEmail(tfEmail.getText());
+    	getCliente().setCpf(tfCpf.getText());
+    	getCliente().setDataAniversario(datePickerAniversario.getValue());
+    	
 
-				Alert alInfo = new Alert(AlertType.INFORMATION);
-				alInfo.setHeaderText("Cadastro Alterado com Sucesso!");
-				alInfo.show();
-		    	super.save(cliente);
-			}
-	    	handleLimpar(event);
-		}
-		catch(Exception e) {
-			
-		}
+    	System.out.println("Cliente: " + cliente.getId());
+    	super.save(getCliente());
+    	
+    	handleLimpar(event);
+		
+//		try {
+//			cliente.setNome(tfNome.getText());
+//			cliente.setCpf(tfCpf.getText());
+//			cliente.setEndereco(tfEndereco.getText());
+//			cliente.setEmail(tfEmail.getText());
+//			cliente.setDataAniversario(datePickerAniversario.getValue());
+//			
+//			String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(),
+//					email = tfEmail.getText();
+//			LocalDate nascimento = datePickerAniversario.getValue();
+//			
+//			Alert al = new Alert(AlertType.CONFIRMATION);
+//			al.setHeaderText("Alterar Cadastro");
+//			al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email + "\nNascimento: " + nascimento);
+//			Optional<ButtonType> result = al.showAndWait();
+//			if (result.get() == ButtonType.OK) {
+//
+//				Alert alInfo = new Alert(AlertType.INFORMATION);
+//				alInfo.setHeaderText("Cadastro Alterado com Sucesso!");
+//				alInfo.show();
+//		    	super.save(cliente);
+//			}
+//	    	handleLimpar(event);
+//		}
+//		catch(Exception e) {
+//			
+//		}
 
 	}
 

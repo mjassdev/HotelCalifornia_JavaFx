@@ -94,9 +94,10 @@ public class ClienteController extends ControllerSuper implements Initializable 
 			if (event.getClickCount() == 2) {
 	    		Hospede listagem = ClienteControllerFactory.getInstance();
 				cliente = tvClientes.getSelectionModel().getSelectedItem();
+				System.out.println(cliente.getId());
+
 	    		listagem.abrir(cliente);
 	    		
-				System.out.println(cliente.getNome());
 
 			}
 			
