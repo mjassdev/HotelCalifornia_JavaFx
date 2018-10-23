@@ -68,7 +68,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfCpf" focusColor="#4662b5" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: white;" unFocusColor="BLACK">
+                        <JFXTextField fx:id="tfCpf" focusColor="#4662b5" onKeyReleased="#tfCpfReleased" prefHeight="27.0" prefWidth="300.0" style="-fx-background-color: white;" unFocusColor="BLACK">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin></JFXTextField>

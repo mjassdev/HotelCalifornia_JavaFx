@@ -41,19 +41,6 @@ public class ControllerSuper<T extends DefaultEntity<? super T>> {
 	    f.close();
 	}
 	
-//	public T remove(T entity) {
-//
-//		Repository<T> repository = new Repository<T>(JPAFactory.getEntityManager());
-//
-//		repository.getEntityManager().getTransaction().begin();
-//		repository.remove(entity);
-//		repository.getEntityManager().getTransaction().commit();
-//		repository.getEntityManager().close();
-//
-//		return entity;
-//	}
-	
-	
 	public void remove(T entity) {
 		Repository<T> repository = 
 				new Repository<T>(JPAFactory.getEntityManager());
@@ -65,10 +52,20 @@ public class ControllerSuper<T extends DefaultEntity<? super T>> {
 	}
 	
 	
-	
 	protected void dialogConfirma() throws IOException{
 		FXMLLoader fXMLLoader = new FXMLLoader();
 		fXMLLoader.setLocation(getClass().getResource("/view/confirmacao.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(fXMLLoader.load());
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.initStyle(StageStyle.UNDECORATED);
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.show();
+	}
+	protected void dialogConfirmaAlteracao() throws IOException{
+		FXMLLoader fXMLLoader = new FXMLLoader();
+		fXMLLoader.setLocation(getClass().getResource("/view/confirmacaoalteracao.fxml"));
 		Stage stage = new Stage();
 		Scene scene = new Scene(fXMLLoader.load());
 		stage.setScene(scene);
@@ -88,6 +85,7 @@ public class ControllerSuper<T extends DefaultEntity<? super T>> {
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.show();
 	}
+	
 	protected void dialogErro() throws IOException{
 		FXMLLoader fXMLLoader = new FXMLLoader();
 		fXMLLoader.setLocation(getClass().getResource("/view/erro.fxml"));

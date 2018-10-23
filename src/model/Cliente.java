@@ -9,15 +9,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 
 @Entity
+
 public class Cliente extends DefaultEntity<Cliente> implements Serializable{
 
 	private static final long serialVersionUID = -4977468047936686376L;
 
 	private String nome;
+	
+	@Column(unique=true)
 	private String cpf;
+	
 	private String endereco;
 	private String email;
 	
