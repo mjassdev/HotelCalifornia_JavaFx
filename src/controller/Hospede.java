@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXDatePicker;
@@ -33,6 +34,7 @@ public class Hospede extends ControllerSuper implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		
 
 	}
 
@@ -52,8 +54,9 @@ public class Hospede extends ControllerSuper implements Initializable {
     	tfEndereco.setText(cliente.getEndereco());
     	tfEmail.setText(cliente.getEmail());
     	datePickerAniversario.setValue(cliente.getDataAniversario());
+    	atualizarBotoes();
+    	stage.show();
 
-    	stage.showAndWait();
     }
 	
 	@FXML
@@ -72,7 +75,9 @@ public class Hospede extends ControllerSuper implements Initializable {
 
 		dialogConfirmaAlteracao();
 		
-    	handleLimpar(event);
+		Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
+		stage.close(); // Fechando o Stage
+
 	}
 	catch(Exception e) {
 		
@@ -82,21 +87,23 @@ public class Hospede extends ControllerSuper implements Initializable {
 	}
 
 	@FXML
-	void handleExcluir(ActionEvent event) {
+	void handleExcluir(ActionEvent event) throws IOException {
 		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(), email = tfEmail.getText();
 		super.remove(cliente);
-		handleLimpar(event);
+
+		Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
+		stage.close(); // Fechando o Stage
+
 	}
 
 	@FXML
-	void handleIncluir(ActionEvent event) {
-		
-		
+	void handleIncluir(ActionEvent event) throws IOException {
 		
 		cliente = new Cliente(tfNome.getText(), tfCpf.getText(), tfEndereco.getText(), tfEmail.getText(), datePickerAniversario.getValue());
 		String nome = tfNome.getText(), endereco = tfEndereco.getText(), cpf = tfCpf.getText(), email = tfEmail.getText();
 		super.save(cliente);
 		handleLimpar(event);
+		
 	}
 
 	@FXML
@@ -113,7 +120,6 @@ public class Hospede extends ControllerSuper implements Initializable {
 		tfEndereco.setText("");
 		datePickerAniversario.setValue(null);
 		cliente = new Cliente();
-		atualizarBotoes();
 	}
 	
     @FXML
@@ -125,12 +131,11 @@ public class Hospede extends ControllerSuper implements Initializable {
     	tff.formatter();
     }
 
-    
-
 	private void atualizarBotoes() {
-		btIncluir.setDisable(cliente.getId() != null);
-		btAlterar.setDisable(cliente.getId() == null);
-		btExcluir.setDisable(cliente.getId() == null);
+			btIncluir.setDisable(cliente.getId() != null);
+			btAlterar.setDisable(cliente.getId() == null);
+			btExcluir.setDisable(cliente.getId() == null);
+			btLimpar.setDisable(cliente.getId() != null);	
 	}
 	
 	public Cliente getCliente() {

@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
@@ -31,6 +32,7 @@ public class Controller {
     @FXML private JFXTabPane tabContainer;
     @FXML private Tab userProfileTab, settingsTab, logoutTab, tabReservas, tabProdutos, tabUsuarios, tabRelatorios, tabConfiguracoes ;
     @FXML private AnchorPane userProfileContainer, settingsContainer, reservasContainer, produtosContainer,  usuarioContainer, relatoriosContainer, configContainer ;
+//    @FXML private FlowPane quartosPane;
     @FXML private TextField tituloAba;
     @FXML private TextField nomeUsuario;
     

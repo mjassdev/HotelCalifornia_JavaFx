@@ -129,21 +129,33 @@
                            <graphic>
                               <FontAwesomeIcon iconName="SAVE" />
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
+                        <JFXButton fx:id="btAlterar" disable="true" onAction="#handleAlterar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
                            <graphic>
                               <FontAwesomeIcon iconName="PENCIL" />
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="btExcluir" onAction="#handleExcluir" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Excluir">
+                        <JFXButton fx:id="btExcluir" disable="true" onAction="#handleExcluir" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Excluir">
                            <graphic>
                               <FontAwesomeIcon iconName="TRASH" />
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
                         <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
                            <graphic>
                               <FontAwesomeIcon iconName="RECYCLE" />
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
                      </children>
                   </HBox>

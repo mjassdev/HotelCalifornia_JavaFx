@@ -36,9 +36,11 @@
 		<!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx -->
 		<dependency>
 			<groupId>de.jensd</groupId>
-			<artifactId>fontawesomefx</artifactId>
-			<version>8.1</version>
+	<artifactId>fontawesomefx</artifactId>
+	<version>8.1</version>
 		</dependency>
+		
+
 
 
 	</dependencies>

@@ -33,12 +33,21 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));	
-        primaryStage.setTitle("HOTEL CALIFORNIA");
-        primaryStage.setScene(new Scene(root, 300, 400));
-        primaryStage.setResizable(false);
-		primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();
+//		Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));	
+//        primaryStage.setTitle("HOTEL CALIFORNIA");
+//        primaryStage.setScene(new Scene(root, 300, 400));
+//        primaryStage.setResizable(false);
+//		primaryStage.initStyle(StageStyle.UNDECORATED);
+//        primaryStage.show();
+        
+        
+		Parent root = FXMLLoader.load(getClass().getResource("/view/main_view.fxml"));
+		Stage scene = new Stage();
+		scene.setTitle("HOTEL CALIFORNIA");
+		scene.setScene(new Scene(root, 1366, 768));
+		scene.setResizable(true);
+
+		scene.showAndWait();
 	}
 	
     

@@ -13,9 +13,9 @@ public class QuartoRepository extends Repository<Quarto> {
 		
 	}
 
-	public List<Quarto> getQuartos(String numeroquarto) {
-		Query query = getEntityManager().createQuery("SELECT c FROM Quarto c WHERE lower(c.numeroquarto) like(:numeroquarto)");
-		query.setParameter("numeroquarto", "%" + numeroquarto + "%");
+	public List<Quarto> getQuartos() {
+		Query query = getEntityManager().createQuery("SELECT c FROM Quarto c");
+//		query.setParameter("numeroquarto", "%" + numeroquarto + "%");
 
 		List<Quarto> lista = query.getResultList();
 		if (lista == null) {

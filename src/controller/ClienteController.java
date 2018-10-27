@@ -65,12 +65,18 @@ public class ClienteController extends ControllerSuper implements Initializable 
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		tcIdClientes.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tcNomeClientes.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		tcCpfClientes.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 		tcEmailClientes.setCellValueFactory(new PropertyValueFactory<>("email"));
 		tcEnderecoClientes.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		tcNascCliente.setCellValueFactory(new PropertyValueFactory<>("dataAniversario"));
+		try {
+			atualizar();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -83,8 +89,8 @@ public class ClienteController extends ControllerSuper implements Initializable 
 		stage.setResizable(false);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("Usuarios");
-		stage.show();
+		stage.showAndWait();
+		atualizar();
 	}
 
 	@FXML
@@ -94,15 +100,10 @@ public class ClienteController extends ControllerSuper implements Initializable 
 			if (event.getClickCount() == 2) {
 	    		Hospede listagem = ClienteControllerFactory.getInstance();
 				cliente = tvClientes.getSelectionModel().getSelectedItem();
-//				System.out.println(cliente.getId());
-
 	    		listagem.abrir(cliente);
-	    		
-
+	    		atualizar();
 			}
-			
     	}
-		
 	}
 	
 	public Cliente getClienteSelecionado() {
@@ -148,6 +149,15 @@ public class ClienteController extends ControllerSuper implements Initializable 
 			super.dialogErro();
 		}
 		tvClientes.setItems(FXCollections.observableList(lista));
+	}
+	
+	public void atualizar() throws IOException {
+		ClienteRepository repository = new ClienteRepository(JPAFactory.getEntityManager());
+		List<Cliente> lista = repository.getClientes(tfPesquisar.getText());
+		if (lista.isEmpty()) {
+			super.dialogErro();
+		}
+		tvClientes.setItems(FXCollections.observableList(lista));		
 	}
 
 	public void setListaCliente(List<Cliente> listaCliente) {
