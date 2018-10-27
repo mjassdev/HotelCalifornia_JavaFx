@@ -59,7 +59,7 @@ public class ClienteController extends ControllerSuper implements Initializable 
 	@FXML private TableColumn<Cliente, LocalDate> tcNascCliente;
 	@FXML private TextField tfPesquisar;
 	@FXML private Button btPesquisar;
-	@FXML private JFXButton btCadastrarCliente;
+	@FXML private Button btCadastrarCliente;
     @FXML private AnchorPane paneClientes;
     @FXML private JFXTextField tfNomeTeste;
     
@@ -140,7 +140,7 @@ public class ClienteController extends ControllerSuper implements Initializable 
 	}
 
 	private List<Cliente> listaCliente;
-
+	
 	@FXML
 	void handleBuscar(ActionEvent event) throws IOException {
 		ClienteRepository repository = new ClienteRepository(JPAFactory.getEntityManager());
@@ -148,6 +148,7 @@ public class ClienteController extends ControllerSuper implements Initializable 
 		if (lista.isEmpty()) {
 			super.dialogErro();
 		}
+		
 		tvClientes.setItems(FXCollections.observableList(lista));
 	}
 	

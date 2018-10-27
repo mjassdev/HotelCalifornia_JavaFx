@@ -7,11 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
-import com.sun.javafx.tk.Toolkit;
-import com.sun.prism.paint.Color;
-
 import factory.CadastroReservaControllerFactory;
 import factory.ClienteControllerFactory;
 import factory.JPAFactory;
@@ -21,9 +17,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -41,6 +40,7 @@ public class QuartoController extends ControllerSuper implements Initializable{
 	private Quarto quarto;
     @FXML private FlowPane quartosPane;
 	private Parent parent;
+	private JFXButton botaoQuarto;
 	
 	GridPane grid = new GridPane();
 	Scene scene = new Scene(grid, 1024,768);
@@ -48,25 +48,24 @@ public class QuartoController extends ControllerSuper implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		int width = gd.getDisplayMode().getWidth();
+		int height = gd.getDisplayMode().getHeight();
+		quartosPane.setPrefHeight(height);
+		quartosPane.setPrefWidth(width);
 		preencherBotoes();
-
 	}	
 	
 	public void preencherBotoes() {
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int width = gd.getDisplayMode().getWidth();
-		int height = gd.getDisplayMode().getHeight();
-		
+		int height = gd.getDisplayMode().getHeight();		
 		QuartoRepository repository = new QuartoRepository(JPAFactory.getEntityManager());
-
-		List<Quarto> listaQuarto = repository.getQuartos();
-		
+		List<Quarto> listaQuarto = repository.getQuartos();		
 		for(Quarto lista : listaQuarto) {
 			
-			
-			JFXButton botaoQuarto = new JFXButton();
-			botaoQuarto.setPrefWidth(width/10);
+			botaoQuarto = new JFXButton();
+			botaoQuarto.setPrefWidth(width/15);
 			botaoQuarto.setPrefHeight(height/8);
 			atualizaBotoes(botaoQuarto, lista);
 			botaoQuarto.setText(lista.getNumeroQuarto());
@@ -76,6 +75,10 @@ public class QuartoController extends ControllerSuper implements Initializable{
 					try {
 //						System.out.println(lista.getNumeroQuarto().toString());
 						abrirJanelaQuarto(lista);
+//						if(quartosPane.getChildren().contains(botaoQuarto) == true) {
+//							quartosPane.getChildren().removeAll(botaoQuarto);
+//							quartosPane.getChildren().add(botaoQuarto);
+//						}
 						atualizaBotoes(botaoQuarto, lista);
 
 					} catch (IOException e) {
@@ -83,20 +86,28 @@ public class QuartoController extends ControllerSuper implements Initializable{
 					}
 	            }
 			});
-			
+
 			quartosPane.getChildren().add(botaoQuarto);
+
 		}
 	}
 	
-	public static Button atualizaBotoes(Button botaoQuarto, Quarto lista){
 
+	
+	public static Button atualizaBotoes(Button botaoQuarto, Quarto lista){
+		double imageWidth = 18.0;
 			if(lista.isOcupado() == false) {
-				botaoQuarto.setStyle("-fx-background-color: #66CDAA; -fx-background-radius: 0px; -fx-border-color: #000000");
+				
+				botaoQuarto.setGraphic(null);
+				botaoQuarto.setStyle("-fx-background-color: #87CEFF; -fx-background-radius: 0px; -fx-border-color: #ffffff");
 			}
 			else {
-				botaoQuarto.setStyle("-fx-background-color: #556B2F; -fx-text-fill: white; -fx-background-radius: 0px; -fx-border-color: #000000");
+		        ImageView imageView = new ImageView(new Image("/imagens/user.png"));
+		        imageView.setFitHeight(imageWidth);
+		        imageView.setFitWidth(imageWidth);
+		        botaoQuarto.setGraphic(imageView);
+				botaoQuarto.setStyle("-fx-background-color: #00688B; -fx-text-fill: white; -fx-background-radius: 0px; -fx-border-color: #ffffff");
 			}
-
 		return botaoQuarto;
 	}
 	

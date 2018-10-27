@@ -25,6 +25,15 @@ public class UsuarioRepository extends Repository<Usuario> {
 		}
 		return lista;
 	}
+//	public Object getLogin(String cpf, String senha) {
+//		Object usuario = null;
+//		Query query = getEntityManager().createQuery("SELECT c FROM Usuario c WHERE lower(c.cpf) like(:cpf) AND lower(c.senha) like(:senha)");
+//		usuario = query.getSingleResult();
+////		query.setParameter("senha",senha);
+//
+//		return usuario;
+//	}
+	
 	public List<Usuario> getLogin(String cpf, String senha) {
 		Query query = getEntityManager().createQuery("SELECT c FROM Usuario c WHERE lower(c.cpf) like(:cpf) AND lower(c.senha) like(:senha)");
 		query.setParameter("cpf",cpf);

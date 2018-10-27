@@ -41,7 +41,7 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Nome:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: WHITE; -fx-text-fill: black;" text="Nome:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -60,7 +60,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="CPF:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-text-fill: black;" text="CPF:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -76,7 +76,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Endereço:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-text-fill: black;" text="Endereço:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -92,7 +92,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Email:" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-text-fill: black;" text="Email:" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -108,7 +108,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="195.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="D. Nasc." textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: white; -fx-text-fill: black;" text="D. Nasc." textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -133,7 +133,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="btAlterar" disable="true" onAction="#handleAlterar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
+                        <JFXButton fx:id="btAlterar" disable="true" onAction="#handleAlterar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Alterar">
                            <graphic>
                               <FontAwesomeIcon iconName="PENCIL" />
                            </graphic>
@@ -149,7 +149,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
+                        <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="108.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Limpar">
                            <graphic>
                               <FontAwesomeIcon iconName="RECYCLE" />
                            </graphic>

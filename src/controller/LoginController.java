@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import factory.ControllerFactory;
 import factory.JPAFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +23,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Quarto;
 import model.Usuario;
+import repository.QuartoRepository;
 import repository.UsuarioRepository;
 
 public class LoginController implements Initializable {
@@ -53,16 +56,32 @@ public class LoginController implements Initializable {
 
 			UsuarioRepository repository = new UsuarioRepository(JPAFactory.getEntityManager());
 			List<Usuario> usuario = repository.getLogin(tfUsuario.getText(), tfSenha.getText());
+			
 			if (!usuario.isEmpty()) {
-				Parent root = FXMLLoader.load(getClass().getResource("/view/main_view.fxml"));
-				Stage scene = new Stage();
-				scene.setTitle("HOTEL CALIFORNIA");
-				scene.setScene(new Scene(root, 1366, 768));
-				scene.setResizable(true);
-				// Mudar quando criar metodo de validação de acesso
-				Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
-				stage.close();
-				scene.showAndWait();
+//				Usuario teste = usuario;
+//				System.out.println(teste.getNome());
+				for (Usuario lista : usuario) {
+					Usuario usuarioteste = lista;
+					System.out.println(usuarioteste.getNome().toString());
+					
+					
+//					Parent root = FXMLLoader.load(getClass().getResource("/view/main_view.fxml"));
+//					Stage scene = new Stage();
+//					scene.setTitle("HOTEL CALIFORNIA");
+//					scene.setScene(new Scene(root, 1366, 768));
+//					scene.setResizable(true);
+					
+
+					
+					Controller passarNome = ControllerFactory.getInstance(usuarioteste);
+					passarNome.passar(usuarioteste);
+					
+					Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
+					stage.close();
+//					scene.showAndWait();
+				}
+
+
 
 			}else if (tfUsuario.getText().isEmpty() || tfSenha.getText().isEmpty()) {
 

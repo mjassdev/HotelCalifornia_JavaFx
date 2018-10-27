@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -76,7 +77,10 @@ public class Cliente extends DefaultEntity<Cliente> implements Serializable{
 	}
 
 	public void setDataAniversario(LocalDate dataAniversario) {
+		
 		this.dataAniversario = dataAniversario;
+		DateTimeFormatter dataAniversarioF = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String aniversarioFormatado = dataAniversario.format(dataAniversarioF);
 	}
 	
 	
