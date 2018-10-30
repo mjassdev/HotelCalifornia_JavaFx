@@ -50,7 +50,7 @@ public class Controller {
     @FXML private TextField tfTitulo;
     
     private double tabWidth = 250.0;
-    private double tabHeight = 60;
+    private double tabHeight = 70;
     public static int lastSelectedTabIndex = 0;
 
     /// Life cycle
@@ -59,13 +59,10 @@ public class Controller {
     public void initialize() {
         configureView();
         tfTitulo.setText("QUARTOS");
-        
     }
-
     
     public void passar(Usuario usuario) {
     	setUsuario(usuario);
-    	
     	stage = new Stage();
 		Scene scene = new Scene(parent, 1366, 768);
 		stage.setScene(scene);
@@ -74,15 +71,10 @@ public class Controller {
     	String nomeCompleto = usuario.getNome();
     	nomeUsuario.setText("Olá, "+nomeCompleto.substring(0, nomeCompleto.indexOf(' ')));
     }
-    
-
 
     public void mudarTitulo(Tab currentTab) {
-
     	System.out.println("TAB: " + currentTab.getId().toString());
 		tfTitulo.setText(currentTab.getId().toString());
-
-
     }
 
     private void configureView() {
@@ -126,7 +118,6 @@ public class Controller {
 
     private void configureTab(Tab tab, String title, String iconPath, AnchorPane containerPane, URL resourceURL, EventHandler<Event> onSelectionChangedEvent) {
         double imageWidth = 18.0;
-        
         
         ImageView imageView = new ImageView(new Image(iconPath));
         imageView.setFitHeight(imageWidth);

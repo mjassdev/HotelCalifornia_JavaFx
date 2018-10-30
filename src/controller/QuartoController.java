@@ -40,11 +40,7 @@ public class QuartoController extends ControllerSuper implements Initializable{
 	private Quarto quarto;
     @FXML private FlowPane quartosPane;
 	private Parent parent;
-	private JFXButton botaoQuarto;
-	
-	GridPane grid = new GridPane();
-	Scene scene = new Scene(grid, 1024,768);
-
+	private JFXButton botaoQuarto;	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -66,19 +62,15 @@ public class QuartoController extends ControllerSuper implements Initializable{
 			
 			botaoQuarto = new JFXButton();
 			botaoQuarto.setPrefWidth(width/15);
-			botaoQuarto.setPrefHeight(height/8);
+			botaoQuarto.setPrefHeight(height/9);
 			atualizaBotoes(botaoQuarto, lista);
 			botaoQuarto.setText(lista.getNumeroQuarto());
 			botaoQuarto.setOnAction(new EventHandler<ActionEvent>() {
+				
 				@Override
 	            public void handle(ActionEvent event) {
 					try {
-//						System.out.println(lista.getNumeroQuarto().toString());
 						abrirJanelaQuarto(lista);
-//						if(quartosPane.getChildren().contains(botaoQuarto) == true) {
-//							quartosPane.getChildren().removeAll(botaoQuarto);
-//							quartosPane.getChildren().add(botaoQuarto);
-//						}
 						atualizaBotoes(botaoQuarto, lista);
 
 					} catch (IOException e) {
@@ -86,13 +78,9 @@ public class QuartoController extends ControllerSuper implements Initializable{
 					}
 	            }
 			});
-
 			quartosPane.getChildren().add(botaoQuarto);
-
 		}
 	}
-	
-
 	
 	public static Button atualizaBotoes(Button botaoQuarto, Quarto lista){
 		double imageWidth = 18.0;
@@ -131,7 +119,4 @@ public class QuartoController extends ControllerSuper implements Initializable{
 	public void setQuarto(Quarto quarto) {
 		this.quarto = quarto;
 	}
-	
-	
-
 }

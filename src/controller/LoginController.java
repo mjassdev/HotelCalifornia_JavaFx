@@ -4,28 +4,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
-
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import factory.ControllerFactory;
 import factory.JPAFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import model.Quarto;
 import model.Usuario;
-import repository.QuartoRepository;
 import repository.UsuarioRepository;
 
 public class LoginController implements Initializable {
@@ -38,6 +31,8 @@ public class LoginController implements Initializable {
     @FXML private Label erropreenchimento;
     @FXML private FontAwesomeIcon excCpf;
     @FXML private FontAwesomeIcon excSenha;
+    @FXML private ProgressBar progress;
+    Text txtState = new Text();
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -45,7 +40,7 @@ public class LoginController implements Initializable {
 		erropreenchimento.setVisible(false);
 		excCpf.setVisible(false);
 		excSenha.setVisible(false);
-		
+		progress.setVisible(true);
 	}
 	
     @FXML public void acessarSistema(ActionEvent event) throws IOException {
@@ -58,30 +53,14 @@ public class LoginController implements Initializable {
 			List<Usuario> usuario = repository.getLogin(tfUsuario.getText(), tfSenha.getText());
 			
 			if (!usuario.isEmpty()) {
-//				Usuario teste = usuario;
-//				System.out.println(teste.getNome());
 				for (Usuario lista : usuario) {
 					Usuario usuarioteste = lista;
 					System.out.println(usuarioteste.getNome().toString());
-					
-					
-//					Parent root = FXMLLoader.load(getClass().getResource("/view/main_view.fxml"));
-//					Stage scene = new Stage();
-//					scene.setTitle("HOTEL CALIFORNIA");
-//					scene.setScene(new Scene(root, 1366, 768));
-//					scene.setResizable(true);
-					
-
-					
 					Controller passarNome = ControllerFactory.getInstance(usuarioteste);
 					passarNome.passar(usuarioteste);
-					
 					Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
 					stage.close();
-//					scene.showAndWait();
 				}
-
-
 
 			}else if (tfUsuario.getText().isEmpty() || tfSenha.getText().isEmpty()) {
 
