@@ -77,6 +77,9 @@ public class LoginController implements Initializable {
 			}
 
     }
+    
+    
+
 
     @FXML void handleFecharJanela(MouseEvent event) {
 		Stage stage = (Stage) btFechar.getScene().getWindow(); // Obtendo a janela atual
