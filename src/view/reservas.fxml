@@ -34,7 +34,10 @@
                         <TextField fx:id="tfPesquisar" promptText="Pesquisar" style="-fx-background-color: transparent; -fx-text-fill: white;" />
                         <Button fx:id="btPesquisar" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: transparent;">
                            <graphic>
-                              <FontAwesomeIcon glyphStyle="-fx-fill:#fff" iconName="SEARCH" nodeOrientation="RIGHT_TO_LEFT" size="1.3em" />
+                              <FontAwesomeIcon glyphStyle="-fx-fill:#fff" iconName="SEARCH" nodeOrientation="RIGHT_TO_LEFT" size="1.3em">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></FontAwesomeIcon>
                            </graphic>
                         </Button>
                      </children>
@@ -49,12 +52,12 @@
 		<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
 	</columnResizePolicy>
                <columns>
-                  <TableColumn fx:id="tcIdReserva" editable="false" prefWidth="39.0" text="Id" />
-                  <TableColumn fx:id="tcDataChegada" editable="false" prefWidth="98.0" text="Data Chegada" />
-                  <TableColumn fx:id="tcDataSaida" editable="false" prefWidth="138.0" text="Data Saída" />
-                  <TableColumn fx:id="tcQuantidadeHospedes" editable="false" minWidth="0.0" prefWidth="154.0" text="Quantidade de Hospedes" />
-                  <TableColumn fx:id="tcHospedeResponsavel" editable="false" maxWidth="145.0" minWidth="100.0" prefWidth="135.0" text="Hospede Responsável" />
-                  <TableColumn fx:id="tcTipoQuarto" prefWidth="115.0" text="Tipode de Quarto" />
+                  <TableColumn fx:id="tcIdReserva" editable="false" prefWidth="39.0" text="Id" visible="false" />
+                  <TableColumn fx:id="tcHospedeResponsavel" editable="false" maxWidth="145.0" minWidth="100.0" prefWidth="135.0" text="HÓSPEDE" />
+                  <TableColumn fx:id="tcDataChegada" editable="false" prefWidth="98.0" text="CHEGADA" />
+                  <TableColumn fx:id="tcDataSaida" editable="false" prefWidth="138.0" text="SAÍDA" />
+                  <TableColumn fx:id="tcQuantidadeHospedes" editable="false" minWidth="0.0" prefWidth="154.0" text="ACOMPANHANTES" />
+                  <TableColumn fx:id="tcTipoQuarto" prefWidth="115.0" text="QUARTO" />
                </columns>
                <styleClass>
                   <String fx:value="table-row-cell" />
@@ -66,12 +69,19 @@
             <Accordion />
          </children>
       </VBox>
-      <HBox fillHeight="false" prefHeight="32.0" prefWidth="126.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="32.0" prefWidth="50.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
          <children>
-            <JFXButton fx:id="btCadastrarReserva" alignment="CENTER" onAction="#dialogReservas" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: white; -fx-text-fill: #1874CD; -fx-background-radius: 0px;" text="NOVA RESERVA">
+            <JFXButton fx:id="btCadastrarReserva" alignment="CENTER" minWidth="30.0" onAction="#dialogReservas" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: white; -fx-text-fill: #1874CD; -fx-background-radius: 15px;" text="NOVA RESERVA">
                <font>
                   <Font size="10.0" />
                </font>
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="30.0" prefWidth="15.0" style="-fx-background-color: TE;">
+                     <children>
+                        <FontAwesomeIcon fill="#00a2d3" iconName="PLUS" size="1.5em" />
+                     </children>
+                  </VBox>
+               </graphic>
             </JFXButton>
          </children>
       </HBox>
