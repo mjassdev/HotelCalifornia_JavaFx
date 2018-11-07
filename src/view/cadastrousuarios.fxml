@@ -39,7 +39,7 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Nome:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Nome:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -58,7 +58,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="CPF:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: black;" text="CPF:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -74,7 +74,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Endereço:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Endereço:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -90,7 +90,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Email:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Email:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -106,7 +106,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="131.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Nascimento:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Nascimento:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -123,7 +123,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="194.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: #00A2D3;" text="Senha" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="99.0" style="-fx-text-fill: black;" text="Senha" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -135,7 +135,7 @@
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin></JFXPasswordField>
-                        <Label alignment="CENTER_RIGHT" layoutX="30.0" layoutY="10.0" prefHeight="27.0" prefWidth="93.0" style="-fx-background-color: #00A2D3;" text="Confirmação" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" layoutX="30.0" layoutY="10.0" prefHeight="27.0" prefWidth="93.0" style="-fx-text-fill: black;" text="Confirmação" textFill="WHITE">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -149,7 +149,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="198.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #00A2D3;" text="Perfil" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Perfil" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -170,7 +170,7 @@
                               <FontAwesomeIcon iconName="SAVE" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
+                        <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Alterar">
                            <graphic>
                               <FontAwesomeIcon iconName="PENCIL" />
                            </graphic>
@@ -180,7 +180,7 @@
                               <FontAwesomeIcon iconName="TRASH" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
+                        <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Limpar">
                            <graphic>
                               <FontAwesomeIcon iconName="RECYCLE" />
                            </graphic>
