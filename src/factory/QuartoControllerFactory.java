@@ -2,7 +2,6 @@ package factory;
 
 import java.io.IOException;
 
-import controller.CadastroReservaController;
 import controller.CheckController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

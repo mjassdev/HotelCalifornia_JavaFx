@@ -2,10 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -38,7 +37,7 @@
                <children>
                   <HBox prefHeight="40.0" prefWidth="598.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #00A2D3;" text="Previsão de Chegada" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="150.0" style="-fx-text-fill: black;" text="Chegada" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -46,8 +45,8 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker fx:id="dpDataChegada" prefHeight="27.0" prefWidth="145.0" />
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #00A2D3;" text="Previsão de Saída:" textFill="WHITE">
+                        <JFXDatePicker fx:id="dpDataChegada" defaultColor="#00a2d3" prefHeight="29.0" prefWidth="257.0" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="134.0" style="-fx-text-fill: black;" text="Saída" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -55,11 +54,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker fx:id="dpDataSaida" prefHeight="27.0" prefWidth="143.0">
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </DatePicker>
+                        <JFXDatePicker fx:id="dpDataSaida" defaultColor="#00a2d3" prefHeight="29.0" prefWidth="244.0" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -67,7 +62,7 @@
                   </HBox>
                   <HBox prefHeight="40.0" prefWidth="598.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="177.0" style="-fx-background-color: #00A2D3;" text="Quantidade de Hospedes:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="177.0" style="-fx-text-fill: black;" text="Quantidade de Hospedes:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -76,7 +71,7 @@
                            </HBox.margin>
                         </Label>
                         <JFXComboBox fx:id="tfQuantidadeHospede" prefHeight="27.0" prefWidth="111.0" />
-                        <Label prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #00A2D3;" text="Tipo do Quarto:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="123.0" style="-fx-text-fill: black;" text="Tipo do Quarto:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -93,7 +88,7 @@
                   </HBox>
                   <HBox prefHeight="42.0" prefWidth="598.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #00A2D3;" text="Hospede Responsável:" textFill="WHITE">
+                        <Label prefHeight="27.0" prefWidth="172.0" style="-fx-text-fill: black;" text="Hospede Responsável:" textFill="WHITE">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -101,7 +96,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField fx:id="tfHospedeResponsavel" focusColor="#4662b5" prefHeight="27.0" prefWidth="384.0" style="-fx-background-color: white;" unFocusColor="#2fa4bc" />
+                        <JFXComboBox fx:id="tfHospedeResponsavel" prefHeight="28.0" prefWidth="225.0" />
                      </children>
                   </HBox>
                </children>
@@ -115,7 +110,7 @@
                   <FontAwesomeIcon iconName="SAVE" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
+            <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Alterar">
                <graphic>
                   <FontAwesomeIcon iconName="PENCIL" />
                </graphic>
@@ -125,7 +120,7 @@
                   <FontAwesomeIcon iconName="TRASH" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Limpar">
+            <JFXButton fx:id="btLimpar" onAction="#handleLimpar" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00A2d3; -fx-background-radius: 0px;" text="Limpar">
                <graphic>
                   <FontAwesomeIcon iconName="RECYCLE" />
                </graphic>
