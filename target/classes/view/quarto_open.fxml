@@ -127,5 +127,10 @@
             </FontAwesomeIcon>
          </children>
       </HBox>
+      <Label fx:id="lbQuartoOpen" text="CHECK-IN" textFill="#4266a1" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Futura Medium" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

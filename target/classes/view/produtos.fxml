@@ -8,26 +8,28 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutosController">
    <children>
-      <TableView layoutX="52.0" layoutY="122.0" prefHeight="200.0" prefWidth="524.0" stylesheets="@../styles/global.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+      <TableView fx:id="tvProdutos" layoutX="52.0" layoutY="122.0" prefHeight="200.0" prefWidth="524.0" stylesheets="@../styles/stylesheet.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
         	<columnResizePolicy>
 		<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
 	</columnResizePolicy>
         <columns>
-          <TableColumn fx:id="tcIdProduto" prefWidth="75.0" text="COD." />
-          <TableColumn fx:id="tcDescricaoProduto" prefWidth="102.0" text="DESCRIÇÃO" />
-            <TableColumn fx:id="tcUnidade" prefWidth="48.0" text="UND." />
-            <TableColumn fx:id="tcQuantidade" prefWidth="113.0" text="Q. ESTOQUE" />
-            <TableColumn fx:id="tcPrecoUnitario" prefWidth="101.0" text="P. UNITÁRIO" />
-            <TableColumn fx:id="tcPrecoTotal" prefWidth="99.0" text="P. TOTAL" />
+          <TableColumn fx:id="tcIdProduto" maxWidth="2000.0" minWidth="30.0" prefWidth="30.0" text="COD." />
+          <TableColumn fx:id="tcDescricaoProduto" minWidth="300.0" prefWidth="102.0" text="DESCRIÇÃO" />
+            <TableColumn fx:id="tcUnidade" maxWidth="2000.0" minWidth="20.0" prefWidth="20.0" text="UND." />
+            <TableColumn fx:id="tcQuantidade" prefWidth="113.0" text="QTD. EM  ESTOQUE" />
+            <TableColumn fx:id="tcPrecoUnitario" prefWidth="101.0" text="PREÇO UNITÁRIO" />
+            <TableColumn fx:id="tcPrecoTotal" prefWidth="99.0" text="PREÇO TOTAL" />
         </columns>
          <styleClass>
-            <String fx:value="headers-region" />
-            <String fx:value="tab-header-area" />
+            <String fx:value="table-row-cell" />
+            <String fx:value="table-cell" />
+            <String fx:value="virtual-flow" />
+            <String fx:value="track-background" />
          </styleClass>
       </TableView>
-      <JFXButton fx:id="btNovoCadastro" layoutX="463.0" layoutY="14.0" onAction="#CadastrarProduto" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="NOVO CADASTRO" AnchorPane.rightAnchor="20.0" />
-      <JFXButton fx:id="btLancarProdutos" layoutX="20.0" layoutY="14.0" onAction="#lancarprodutos" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="LANÇAR" AnchorPane.leftAnchor="20.0" />
-      <JFXButton fx:id="btAjusteEstoque" layoutX="22.0" layoutY="358.0" onAction="#AjustarEstoque" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="AJUSTAR ESTOQUE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
-      <JFXButton fx:id="btRelatorioEstoque" layoutX="178.0" layoutY="353.0" onAction="#RelatorioEstoque" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="RELATÓRIO DE ESTOQUE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="170.0" />
+      <JFXButton fx:id="btNovoCadastro" layoutX="463.0" layoutY="14.0" onAction="#CadastrarProduto" style="-fx-background-color: #00688b;" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="NOVO CADASTRO" AnchorPane.rightAnchor="20.0" />
+      <JFXButton fx:id="btLancarProdutos" layoutX="20.0" layoutY="14.0" onAction="#lancarprodutos" style="-fx-background-color: #00688b;" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="LANÇAR" AnchorPane.leftAnchor="20.0" />
+      <JFXButton fx:id="btAjusteEstoque" layoutX="22.0" layoutY="358.0" onAction="#AjustarEstoque" style="-fx-background-color: #00688b;" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="AJUSTAR ESTOQUE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+      <JFXButton fx:id="btRelatorioEstoque" layoutX="178.0" layoutY="353.0" onAction="#RelatorioEstoque" style="-fx-background-color: #00688b;" styleClass="botaopadrao" stylesheets="@../styles/stylesheet.css" text="RELATÓRIO DE ESTOQUE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="170.0" />
    </children>
 </AnchorPane>
