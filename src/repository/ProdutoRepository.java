@@ -16,9 +16,9 @@ public class ProdutoRepository extends Repository<Produto> {
 		
 	}
 
-	public List<Produto> getProdutos(String descricao) {
-		Query query = getEntityManager().createQuery("SELECT c FROM Produto c WHERE lower(c.descricao) like(:descricao)");
-		query.setParameter("descricao", "%" + descricao + "%");
+	public List<Produto> getProdutos() {
+		Query query = getEntityManager().createQuery("SELECT c FROM Produto c");
+//		query.setParameter("descricao", "%" + descricao + "%");
 
 		List<Produto> lista = query.getResultList();
 		if (lista == null) {
@@ -26,5 +26,4 @@ public class ProdutoRepository extends Repository<Produto> {
 		}
 		return lista;
 	}
-
 }

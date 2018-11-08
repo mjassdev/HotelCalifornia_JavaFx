@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,7 +17,11 @@ public class Reserva extends DefaultEntity<Reserva> implements Serializable{
 	@OneToOne
 	@JoinColumn(name="idcliente")
 	private Cliente cliente;
+	
+	@Column(columnDefinition="Date")
 	private LocalDate dataPrevisaoEntrada;
+	
+	@Column(columnDefinition="Date")
 	private LocalDate dataPrevisaoSaida;
 	private Integer acompanhantes;
 	private Quarto quarto;

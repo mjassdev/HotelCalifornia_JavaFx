@@ -6,6 +6,7 @@
 		<class>model.Produto</class>
 		<class>model.Quarto</class>
 		<class>model.Reserva</class>
+		<class>model.Unidade</class>
 		<class>model.Usuario</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"

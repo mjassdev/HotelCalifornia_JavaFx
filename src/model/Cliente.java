@@ -2,20 +2,12 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 
 @Entity
-
 public class Cliente extends DefaultEntity<Cliente> implements Serializable{
 
 	private static final long serialVersionUID = -4977468047936686376L;
@@ -79,8 +71,12 @@ public class Cliente extends DefaultEntity<Cliente> implements Serializable{
 	public void setDataAniversario(LocalDate dataAniversario) {
 		
 		this.dataAniversario = dataAniversario;
-		DateTimeFormatter dataAniversarioF = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		String aniversarioFormatado = dataAniversario.format(dataAniversarioF);
+//		DateTimeFormatter dataAniversarioF = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//		String aniversarioFormatado = dataAniversario.format(dataAniversarioF);
+	}
+	
+	public String toString() {
+		return this.getNome();
 	}
 	
 	

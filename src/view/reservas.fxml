@@ -32,7 +32,7 @@
                   <HBox alignment="CENTER_RIGHT" layoutY="4.0">
                      <children>
                         <TextField fx:id="tfPesquisar" promptText="Pesquisar" style="-fx-background-color: transparent; -fx-text-fill: white;" />
-                        <Button fx:id="btPesquisar" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: transparent;">
+                        <Button fx:id="btPesquisar" mnemonicParsing="false" onAction="#handleBuscar" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: transparent;">
                            <graphic>
                               <FontAwesomeIcon glyphStyle="-fx-fill:#fff" iconName="SEARCH" nodeOrientation="RIGHT_TO_LEFT" size="1.3em">
                                  <cursor>

@@ -29,16 +29,18 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Cliente;
+import model.Produto;
 import model.Reserva;
 import repository.ClienteRepository;
+import repository.ProdutoRepository;
 import repository.ReservaRepository;
 import tools.TextFieldFormatter;
 
 public class ReservaController extends ControllerSuper implements Initializable {
 
 	private Reserva reserva;
-	private Stage stage;
-	private Parent parent;
+//	private Stage stage;
+//	private Parent parent;
 	
 	@FXML private TextField tfPesquisar;
 	@FXML private Button btPesquisar;
@@ -53,10 +55,35 @@ public class ReservaController extends ControllerSuper implements Initializable 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		
+		tcIdReserva.setCellValueFactory(new PropertyValueFactory<>("id"));
+		tcDataChegada.setCellValueFactory(new PropertyValueFactory<>("dataPrevisaoEntrada"));
+		tcDataSaida.setCellValueFactory(new PropertyValueFactory<>("dataPrevisaoSaida"));
+		tcQuantidadeHospedes.setCellValueFactory(new PropertyValueFactory<>("acompanhantes"));
+		tcHospedeResponsavel.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+		tcTipoQuarto.setCellValueFactory(new PropertyValueFactory<>("quarto"));
+		
+		try {
+			atualizar();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
+//	@FXML
+//	void handleMouseClicked(MouseEvent event) throws IOException {
+//
+//    	if (event.getButton().equals(MouseButton.PRIMARY)) {
+//			if (event.getClickCount() == 2) {
+//	    		CadastroReservaController listagem = ReservaControllerFactory.getInstance();
+//				setReserva(tvReservas.getSelectionModel().getSelectedItem());
+//	    		listagem.abrir(reserva);
+//	    		atualizar();
+//			}
+//    	}
+//	}
+	
 	@FXML
 	private void dialogReservas(ActionEvent event) throws IOException {
 		FXMLLoader fXMLLoader = new FXMLLoader();
@@ -77,44 +104,21 @@ public class ReservaController extends ControllerSuper implements Initializable 
     	if (event.getButton().equals(MouseButton.PRIMARY)) {
 			if (event.getClickCount() == 2) {
 	    		CadastroReservaController listagem = ReservaControllerFactory.getInstance();
-				reserva = tvReservas.getSelectionModel().getSelectedItem();
+				Reserva reserva = tvReservas.getSelectionModel().getSelectedItem();
 	    		listagem.abrir(reserva);
 	    		atualizar();
 			}
     	}
 	}
 	
-	public Reserva getReservaSelecionado() {
-		return reserva;
-	}
 	
-
-
-
-	@FXML
-	void handleLimpar(ActionEvent event) {
-//		tfCpf.setText("");
-//		tfNome.setText("");
-//		tfEmail.setText("");
-//		tfEndereco.setText("");
-		reserva = new Reserva();
-
-		atualizarBotoes();
-	}
-
-	private void atualizarBotoes() {
-
-//		btIncluir.setDisable(cliente.getId() != null);
-//		btAlterar.setDisable(cliente.getId() == null);
-//		btExcluir.setDisable(cliente.getId() == null);
-	}
-
-	private List<Reserva> listaReserva;
+//	private List<Reserva> listaReserva;
 	
 	@FXML
 	void handleBuscar(ActionEvent event) throws IOException {
 		ReservaRepository repository = new ReservaRepository(JPAFactory.getEntityManager());
 		List<Reserva> lista = repository.getReservas();
+		
 		if (lista.isEmpty()) {
 			super.dialogErro();
 		}
@@ -128,7 +132,6 @@ public class ReservaController extends ControllerSuper implements Initializable 
 		if (lista.isEmpty()) {
 			super.dialogErro();
 		}
-		
 		tvReservas.setItems(FXCollections.observableList(lista));		
 	}
 
@@ -140,20 +143,6 @@ public class ReservaController extends ControllerSuper implements Initializable 
 		this.reserva = reserva;
 	}
 
-	public Stage getStage() {
-		return stage;
-	}
 
-	public void setStage(Stage stage) {
-		this.stage = stage;
-	}
-
-	public Parent getParent() {
-		return parent;
-	}
-
-	public void setParent(Parent parent) {
-		this.parent = parent;
-	}
 
 }

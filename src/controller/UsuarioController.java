@@ -12,7 +12,9 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import factory.ClienteControllerFactory;
 import factory.JPAFactory;
+import factory.UsuarioControllerFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -62,6 +65,11 @@ public class UsuarioController extends ControllerSuper implements Initializable 
 		tcSenha.setCellValueFactory(new PropertyValueFactory<>("senha"));
 		tcEnderecoUsuario.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		tcPerfilUsuario.setCellValueFactory(new PropertyValueFactory<>("perfilUsuario"));
+		try {
+			atualizar();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}	
 
 	// Abrir janela de cadastro de usuarios do sistema
@@ -77,6 +85,28 @@ public class UsuarioController extends ControllerSuper implements Initializable 
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setTitle("Usuarios");
 		stage.show();
+	}
+	
+	@FXML
+	void handleMouseClicked(MouseEvent event) throws IOException {
+
+    	if (event.getButton().equals(MouseButton.PRIMARY)) {
+			if (event.getClickCount() == 2) {
+	    		CadastraUsuarioController listagem = UsuarioControllerFactory.getInstance();
+				usuario = tvUsuarios.getSelectionModel().getSelectedItem();
+	    		listagem.abrir(usuario);
+	    		atualizar();
+			}
+    	}
+	}
+	
+	public void atualizar() throws IOException {
+		UsuarioRepository repository = new UsuarioRepository(JPAFactory.getEntityManager());
+		List<Usuario> lista = repository.getUsuarios(tfPesquisar.getText());
+		if (lista.isEmpty()) {
+			super.dialogErro();
+		}
+		tvUsuarios.setItems(FXCollections.observableList(lista));		
 	}
 	
 	private List<Usuario> listaUsuario;

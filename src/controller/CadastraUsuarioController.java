@@ -48,11 +48,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import model.Cliente;
 import model.Usuario;
 import repository.UsuarioRepository;
 
 public class CadastraUsuarioController extends ControllerSuper implements Initializable {
 	private Usuario usuario;
+	private Stage stage;
+	private Parent parent;
 	
     @FXML private JFXDatePicker datePickerAniversario;
     @FXML private FontAwesomeIcon btFechar;
@@ -73,16 +76,17 @@ public class CadastraUsuarioController extends ControllerSuper implements Initia
 	void handleAlterar(ActionEvent event) {
 
 		String nome = tfNome.getText(), cpf = tfCpf.getText(), endereco = tfEndereco.getText(),
-				email = tfEmail.getText();
+				email = tfEmail.getText(), dataAniversario = datePickerAniversario.getValue().toString();
 
 		usuario.setCpf(tfCpf.getText());
 		usuario.setNome(tfNome.getText());
 		usuario.setEmail(tfEmail.getText());
 		usuario.setEndereco(tfEndereco.getText());
+		usuario.setDataAniversario(datePickerAniversario.getValue());
 
 		Alert al = new Alert(AlertType.CONFIRMATION);
 		al.setHeaderText("Alterar Cadastro");
-		al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nEmail: " + email);
+		al.setContentText("Nome: " + nome + "\nCPF: " + cpf + "\nEndere�o: " + endereco + "\nEmail: " + email + "\nAnivers�rio: " + dataAniversario);
 		Optional<ButtonType> result = al.showAndWait();
 		if (result.get() == ButtonType.OK) {
 
@@ -137,13 +141,63 @@ public class CadastraUsuarioController extends ControllerSuper implements Initia
 		tfEmail.setText("");
 		tfEndereco.setText("");
 		datePickerAniversario.setValue(null);
+		pfSenha.setText("");
+		pfSenha1.setText("");
 		usuario = new Usuario();
 		atualizarBotoes();
 	}
+	
+    public void abrir(Usuario usuario) {
+    	
+    	setUsuario(usuario);
+    	
+    	stage = new Stage();
+		Scene scene = new Scene(parent, 400, 345);
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.initStyle(StageStyle.UNDECORATED);
+		stage.initModality(Modality.WINDOW_MODAL);
+		
+    	tfNome.setText(usuario.getNome());
+    	tfCpf.setText(usuario.getCpf());
+    	tfEndereco.setText(usuario.getEndereco());
+    	tfEmail.setText(usuario.getEmail());
+    	datePickerAniversario.setValue(usuario.getDataAniversario());
+    	atualizarBotoes();
+    	stage.show();
+
+    }
 
 	private void atualizarBotoes() {
 		btIncluir.setDisable(usuario.getId() != null);
 		btAlterar.setDisable(usuario.getId() == null);
 		btExcluir.setDisable(usuario.getId() == null);
 	}
+	
+	public Usuario getUsuario() {
+		if(usuario == null)
+			usuario = new Usuario();
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	public Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+
+	public Parent getParent() {
+		return parent;
+	}
+
+	public void setParent(Parent parent) {
+		this.parent = parent;
+	}
 }
+

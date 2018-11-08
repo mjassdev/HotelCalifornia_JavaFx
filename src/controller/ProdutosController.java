@@ -15,20 +15,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Cliente;
 import model.Produto;
+import model.Unidade;
 import repository.ClienteRepository;
+import repository.ProdutoRepository;
 
-public class ProdutosController implements Initializable{
+public class ProdutosController extends ControllerSuper implements Initializable{
 	private Produto produto;
 	
+    @FXML private TableView<Produto> tvProdutos;
     @FXML private JFXButton btNovoCadastro, btLancarProdutos, btAjusteEstoque, btRelatorioEstoque;
     @FXML private TableColumn<Produto, Integer> tcIdProduto;
     @FXML private TableColumn<Produto, String> tcDescricaoProduto;
-    @FXML private TableColumn<Produto, String> tcUnidade;
+    @FXML private TableColumn<Unidade, String> tcUnidade;
     @FXML private TableColumn<Produto, String> tcQuantidade;
     @FXML private TableColumn<Produto, String> tcPrecoUnitario;
     @FXML private TableColumn<Produto, String> tcPrecoTotal;
@@ -36,7 +41,17 @@ public class ProdutosController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		tcIdProduto.setCellValueFactory(new PropertyValueFactory<>("id"));
+		tcDescricaoProduto.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+		tcUnidade.setCellValueFactory(new PropertyValueFactory<>("unidadeMedida"));
+		tcQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+		tcPrecoUnitario.setCellValueFactory(new PropertyValueFactory<>("precoUnitario"));
+		tcPrecoTotal.setCellValueFactory(new PropertyValueFactory<>("precoTotal"));
+		try {
+			atualizar();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
     @FXML
@@ -95,5 +110,14 @@ public class ProdutosController implements Initializable{
 		stage.show();
     }
     
+	public void atualizar() throws IOException {
+
+		ProdutoRepository repository = new ProdutoRepository(JPAFactory.getEntityManager());
+		List<Produto> lista = repository.getProdutos();
+		if (lista.isEmpty()) {
+			super.dialogErro();
+		}
+		tvProdutos.setItems(FXCollections.observableList(lista));		
+	}
 	
 }

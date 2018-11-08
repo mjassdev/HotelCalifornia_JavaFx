@@ -127,7 +127,7 @@
                               <FontAwesomeIcon iconName="SAVE" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
+                        <JFXButton fx:id="btAlterar" onAction="#handleAlterar" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #057dc0; -fx-background-radius: 0px;" text="Alterar">
                            <graphic>
                               <FontAwesomeIcon iconName="PENCIL" />
                            </graphic>

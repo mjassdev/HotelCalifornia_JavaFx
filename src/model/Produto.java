@@ -5,6 +5,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Produto extends DefaultEntity<Produto> implements Serializable{
@@ -12,9 +14,12 @@ public class Produto extends DefaultEntity<Produto> implements Serializable{
 	private static final long serialVersionUID = 1020950800821773964L;
 	
 	private String item;
-//	private String unidade;
 	private String descricao;
 	private String genero;
+	
+	@ManyToOne
+	@JoinColumn(name="idUnidadeMedida")
+	private Unidade unidadeMedida;
 	
 	@Column(columnDefinition="Date")
 	private LocalDate dataCaddastro;
@@ -23,13 +28,13 @@ public class Produto extends DefaultEntity<Produto> implements Serializable{
 		
 	}
 	
-	public Produto(String item, String descricao, String genero, LocalDate dataCadastro) {
+	public Produto(String item, String descricao, String genero, Unidade unidadeMedida, LocalDate dataCadastro) {
 		super();
 		this.item = item;
-//		this.unidade = unidade;
 		this.descricao = descricao;
 		this.genero = genero;
-		this.dataCaddastro= dataCadastro;
+		this.unidadeMedida = unidadeMedida;
+		this.dataCaddastro = dataCadastro;
 	}
 	
 	public String getItem() {
@@ -40,17 +45,6 @@ public class Produto extends DefaultEntity<Produto> implements Serializable{
 	public void setItem(String item) {
 		this.item = item;
 	}
-
-
-//	public String getUnidade() {
-//		return unidade;
-//	}
-//
-//
-//	public void setUnidade(String unidade) {
-//		this.unidade = unidade;
-//	}
-//
 
 	public String getDescricao() {
 		return descricao;
@@ -68,5 +62,20 @@ public class Produto extends DefaultEntity<Produto> implements Serializable{
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+	
+	public LocalDate getDataCaddastro() {
+		return dataCaddastro;
+	}
 
+	public void setDataCaddastro(LocalDate dataCaddastro) {
+		this.dataCaddastro = dataCaddastro;
+	}
+
+	public Unidade getUnidadeMedida() {
+		return unidadeMedida;
+	}
+
+	public void setUnidadeMedida(Unidade unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
 }
